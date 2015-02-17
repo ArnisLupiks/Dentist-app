@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+	
+	<!--<script type="text/javascript" src="jquery.min.js"></script> -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+		<link rel="stylesheet" href="..//site3/css/custom.css" />
+     
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+ <script>
+ function Login()
+        {
+var xmlhttp = new XMLHttpRequest();
+ var n = document.getElementById('name').value;
+ var p = document.getElementById('pass').value;
+ 
+<!--var params = "name="+document.getElementById('name').value+"&pass="+document.getElementById('pass').value;-->
+var params = "name="+n+"&pass="+p;
+xmlhttp.open("POST","login.php?"+params,true);
+
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+      
+
+xmlhttp.onreadystatechange=function()
+{
+     if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+       // var ans = xmlhttp.responseText;
+		//  alert(xmlhttp.responseText);
+        //Do whatever you want with the response coming back from the server.
+		document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+		//window.open('main.html'); 
+		//window.location.href = "main.html";
+	}
+}
+xmlhttp.send();
+
+}
+</script>
+
+</head>
+<body>
+<div>
+<form method="post"> 
+	<div>
+      <label for="name">Username: </label>
+      <input type="text" name="name" id="name" />
+    
+      <label for="pass">Password: </label>
+      <input type="text" name="pass" id="pass" />
+   </div>
+      <input type="button" onclick="javascript:Login()" value="Login"  />
+
+	</form></div>
+  <div id="txtHint"></div>
+
+
+</body>
+</html>

@@ -1,0 +1,2280 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+<!-- ?????????????!!!!!!!!!!!!!!!!!??????????????????!!!!!!!!!!!!!!!!!?????????????????????!!!!!!!!!!!!!!!!????????????????????!!!!!!!!!!!   -->
+<!-- ****** sorte css ********************************************************************************************** -->
+<!-- ?????????????!!!!!!!!!!!!!!!!!??????????????????!!!!!!!!!!!!!!!!!?????????????????????!!!!!!!!!!!!!!!!????????????????????!!!!!!!!!!!   -->
+
+	<title>Dental Scheduler</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+				
+	<!--JQuery mobile scripts-->
+	<link href="http://code.jquery.com/mobile/latest/jquery.mobile.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script> 
+	<script src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+	
+	<!--photoswipe scripts-->
+	<link href="css/photoswipe.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="js/klass.min.js"></script>
+	<script type="text/javascript" src="js/code.photoswipe.jquery-3.0.5.min.js"></script>
+	<script type="text/javascript" src="js/code.photoswipe.jquery-3.0.5.js"></script>
+	<link href="css/jquery-mobile.css" type="text/css" rel="stylesheet" />
+	<link href="css/styles.css" type="text/css" rel="stylesheet" />
+	<!--Google maps-->
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	
+	<!--Scripts for datebox-->	
+	<link type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" rel="stylesheet" />
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i18n/jquery.mobile.datebox.i18n.en_US.utf8.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/jquery.mousewheel.min.js"></script>
+	
+	<!--Calender script-->
+	<script type='text/javascript' src='http://arshaw.com/js/fullcalendar-1.5.4/fullcalendar/fullcalendar.min.js'></script>
+    <link rel='stylesheet' type='text/css' href='http://arshaw.com/js/fullcalendar-1.5.4/fullcalendar/fullcalendar.css' />
+	
+	<!--custom scripts-->
+	<link rel="stylesheet" href="css/custom.css" />
+
+	<!--validation scripts-->
+	<script src="js/jquery.validate.js"></script>
+	<script src="js/main.js"></script>
+	<link rel="stylesheet" href="css/app.css" />
+	
+	
+	
+<!--This fires the image gallery-->
+	<script type="text/javascript">
+	(function(window, $, PhotoSwipe)
+		{
+		 $(document).on("pageshow", "#Gallery1", function( event ) {
+				$("#gallery a").photoSwipe(
+				{
+					enableMouseWheel: false,
+					enableKeyboard: false
+				});
+			$("#gallery a:first").click();
+			});
+		}(window, window.jQuery, window.Code.PhotoSwipe));
+	</script>
+
+	<script type="text/javascript">
+	(function(window, $, PhotoSwipe)
+		{
+		 $(document).on("pageshow", "#Gallery2", function( event ) {
+				$("#gallery2 a").photoSwipe(
+				{
+					enableMouseWheel: false,
+					enableKeyboard: false
+				});
+			$("#gallery2 a:first").click();
+			});
+		}(window, window.jQuery, window.Code.PhotoSwipe));
+	</script>	
+		
+  <!--This fires the datebox scripts-->
+	<script type="text/javascript">
+		jQuery.extend(jQuery.mobile.datebox.prototype.options, {
+			useModal: true,
+			useNewStyle: true,
+			usePlaceholder: true,
+			mode: 'calbox',
+		});
+	</script>
+	
+	<!--This fires the calender on "Barry" page-->
+	<script>
+	    $(document).on('pageshow','#Barry',function(e,data){    
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+    
+        $('#calendar').fullCalendar({
+            editable: true,
+            events: [
+                {
+                    title: 'All Day Event',
+                    start: new Date(y, m, 1)
+                },
+                {
+                    title: 'Long Event',
+                    start: new Date(y, m, d-5),
+                    end: new Date(y, m, d-2)
+                },
+                {
+                    id: 999,
+                    title: 'Repeating Event',
+                    start: new Date(y, m, d-3, 16, 0),
+                    allDay: false
+                },
+                {
+                    id: 999,
+                    title: 'Repeating Event',
+                    start: new Date(y, m, d+4, 16, 0),
+                    allDay: false
+                },
+                {
+                    title: 'Meeting',
+                    start: new Date(y, m, d, 10, 30),
+                    allDay: false
+                },
+                {
+                    title: 'Lunch',
+                    start: new Date(y, m, d, 12, 0),
+                    end: new Date(y, m, d, 14, 0),
+                    allDay: false
+                },
+                {
+                    title: 'Birthday Party',
+                    start: new Date(y, m, d+1, 19, 0),
+                    end: new Date(y, m, d+1, 22, 30),
+                    allDay: false
+                },
+                {
+                    title: 'Click for Google',
+                    start: new Date(y, m, 28),
+                    end: new Date(y, m, 29),
+                    url: 'http://google.com/'
+                }
+            ]
+        });
+    });
+	</script>
+	
+	<!--This fires the calender on "Arnis" page-->
+	<script>
+	    $(document).on('pageshow','#Arnis',function(e,data){    
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+    
+        $('#calendar2').fullCalendar({
+            editable: true,
+            events: [
+                {
+                    title: 'All Day Event',
+                    start: new Date(y, m, 1)
+                },
+                {
+                    title: 'Long Event',
+                    start: new Date(y, m, d-5),
+                    end: new Date(y, m, d-2)
+                },
+                {
+                    id: 999,
+                    title: 'Repeating Event',
+                    start: new Date(y, m, d-3, 16, 0),
+                    allDay: false
+                },
+                {
+                    id: 999,
+                    title: 'Repeating Event',
+                    start: new Date(y, m, d+4, 16, 0),
+                    allDay: false
+                },
+                {
+                    title: 'Meeting',
+                    start: new Date(y, m, d, 10, 30),
+                    allDay: false
+                },
+                {
+                    title: 'Lunch',
+                    start: new Date(y, m, d, 12, 0),
+                    end: new Date(y, m, d, 14, 0),
+                    allDay: false
+                },
+                {
+                    title: 'Birthday Party',
+                    start: new Date(y, m, d+1, 19, 0),
+                    end: new Date(y, m, d+1, 22, 30),
+                    allDay: false
+                },
+                {
+                    title: 'Click for Google',
+                    start: new Date(y, m, 28),
+                    end: new Date(y, m, 29),
+                    url: 'http://google.com/'
+                }
+            ]
+        });
+    });
+	</script>
+	
+	<!--This fires the calender on "Caroline" page-->
+	<script>
+	    $(document).on('pageshow','#Caroline',function(e,data){    
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+    
+        $('#calendar3').fullCalendar({
+            editable: true,
+            events: [
+                {
+                    title: 'All Day Event',
+                    start: new Date(y, m, 1)
+                },
+                {
+                    title: 'Long Event',
+                    start: new Date(y, m, d-5),
+                    end: new Date(y, m, d-2)
+                },
+                {
+                    id: 999,
+                    title: 'Repeating Event',
+                    start: new Date(y, m, d-3, 16, 0),
+                    allDay: false
+                },
+                {
+                    id: 999,
+                    title: 'Repeating Event',
+                    start: new Date(y, m, d+4, 16, 0),
+                    allDay: false
+                },
+                {
+                    title: 'Meeting',
+                    start: new Date(y, m, d, 10, 30),
+                    allDay: false
+                },
+                {
+                    title: 'Lunch',
+                    start: new Date(y, m, d, 12, 0),
+                    end: new Date(y, m, d, 14, 0),
+                    allDay: false
+                },
+                {
+                    title: 'Birthday Party',
+                    start: new Date(y, m, d+1, 19, 0),
+                    end: new Date(y, m, d+1, 22, 30),
+                    allDay: false
+                },
+                {
+                    title: 'Click for Google',
+                    start: new Date(y, m, 28),
+                    end: new Date(y, m, 29),
+                    url: 'http://google.com/'
+                }
+            ]
+        });
+    });
+	</script>
+	
+	<!--This is a google maps script for index -->
+	<script>
+            $(document).on('pageinit', '#index', function(e, data) {
+                var minZoomLevel = 19;
+
+                var map = new google.maps.Map(document.getElementById('map_canvas'), {
+                    zoom: minZoomLevel,
+                    center: new google.maps.LatLng(53.342199,-6.23129),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+            });
+        </script>
+		
+		<!--This is a google maps script for index2 -->
+        <script>
+            $(document).on('pageinit', '#index2', function(e, data) {
+                var minZoomLevel = 12;
+
+                var map = new google.maps.Map(document.getElementById('map_canvas2'), {
+                    zoom: minZoomLevel,
+                    center: new google.maps.LatLng(52.835116,-6.933921),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+            });
+        </script> 
+		
+		<!--This is a google maps script for index3 -->
+		<script>
+            $(document).on('pageinit', '#index3', function(e, data) {
+                var minZoomLevel = 12;
+
+                var map = new google.maps.Map(document.getElementById('map_canvas3'), {
+                    zoom: minZoomLevel,
+                    center: new google.maps.LatLng(52.835116,-6.933921),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+            });
+        </script> 
+		
+		<!--This is a google maps script for index4 -->
+		<script>
+            $(document).on('pageinit', '#index4', function(e, data) {
+                var minZoomLevel = 12;
+
+                var map = new google.maps.Map(document.getElementById('map_canvas4'), {
+                    zoom: minZoomLevel,
+                    center: new google.maps.LatLng(52.84135,-6.913254),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+            });
+        </script> 
+		<style>
+		p.padding
+		{
+		padding:8px 8px;
+		}
+		
+		p.padding2
+		{
+		padding:10px 10px;
+		}
+		
+		/* Wordmark and overlay */
+#wordmark {
+	background: #8c1515;
+	padding: 20px 0;
+	border-bottom: 4px solid #d2bd86;
+}
+#wordmark img {
+	margin: 0 auto;
+	display: block;
+}
+
+
+/* Home page banner  */
+h2#banner {
+	background:transparent url(images/aboutdentist.jpg);
+ 	background-position: center top;
+	background-repeat: no-repeat;
+	width: auto;
+	height: 200px;
+	text-indent:-9999px;}
+		
+		
+body{font-family:"Helvetica", Times, serif;}
+		
+		</style>
+		
+	</head>
+<body>
+<!--This is the main menu-->
+<!-- ************************************************************ -->
+<div data-role="page" data-theme="c" id="homePage">
+<div data-role="header" data-theme="b" data-transition="slidedown"><h1></h1></div>
+  <br/><br/><h2 id="banner">Dentist Scheduler</h2><br/><br/>
+  <div data-role="content">
+    <ul data-role="listview" data-inset="true">
+      <li><a href="#Countiespage" data-icon="maps" data-transition="slidedown"><i class="icon-doc"></i>Search Clinics</a></li>
+	  <li><a href="#tutorialspage" data-transition="slidedown"><i class="icon-calendar"></i>Tutorials</a></li>
+      <li><a href="#Gallery2" data-transition="slidedown"><i class="icon-football"></i>Photo Gallery</a></li>
+      <li><a href="#Nutrition" data-transition="slidedown"><i class="icon-location"></i>Dental Nutrition</a></li>
+      <li><a href="#registerPage" data-transition="slidedown"><i class="icon-phone"></i>Register</a></li>
+    </ul>
+    <ul data-role="listview" data-inset="true">
+      <li data-theme="b"><a href="http://www.dentist.ie"><i class="icon-desktop"></i> Full Site</a> </li>
+    </ul>
+  </div>
+  <div data-role="footer" data-theme="b" data-position="fixed">  
+        <a href="#contact" data-icon="info" data-theme="b" data-transition="slidedown" class="ui-btn-right">Contact</a>  
+        <h1><i>www.dentist.ie</i></h1>
+    </div>
+</div>
+
+<div data-role="page" data-theme="c" id="registerPage">
+ 	<div data-role="header" data-theme="b">
+		<a href="#homePage"  data-icon="back" data-theme="b" data-transition="slidedown">Back</a>
+		<h1>Register Page</h1>
+	</div>
+ 	<div data-role="content">	
+ 	<div id="errorBox"><ul></ul></div>
+	<script>
+	$("#registerForm").validate();
+	</script>
+		<form action="process.cfm" method="post" id="registerForm" data-theme="b">
+ 			<fieldset data-role="fieldcontain"> 
+				<label for="user">FirstName:</label>
+				<input type="text" name="user" id="user" class="required">
+			</fieldset>
+			<fieldset data-role="fieldcontain"> 
+				<label for="username2">Surname:</label>
+				<input type="text" name="username2" id="username2" class="required">
+			</fieldset>
+			<label for="genderselect-choice-mini" class="select">Gender:</label>
+				<select name="genderselect-choice-mini" id="genderselect-choice-mini" data-mini="true" data-theme="b" data-inline="true">
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+			</select>
+			<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" >
+				<legend>Date of Birth:</legend>
+				<label for="select-h-6a" data-theme="b">Day</label>
+				<select name="select-h-6a" id="select-h-6a" data-theme="b">
+				<option value="#">1</option>
+				<option value="#">2</option>
+				<option value="#">3</option>
+				<option value="#">4</option>
+				<option value="#">5</option>
+				<option value="#">6</option>
+				<option value="#">7</option>
+				<option value="#">8</option>
+				<option value="#">9</option>
+				<option value="#">10</option>
+				<option value="#">11</option>
+				<option value="#">12</option>
+				<option value="#">13</option>
+				<option value="#">14</option>
+				<option value="#">15</option>
+				<option value="#">16</option>
+				<option value="#">17</option>
+				<option value="#">18</option>
+				<option value="#">19</option>
+				<option value="#">20</option>
+				<option value="#">21</option>
+				<option value="#">22</option>
+				<option value="#">23</option>
+				<option value="#">24</option>
+				<option value="#">25</option>
+				<option value="#">26</option>
+				<option value="#">27</option>
+				<option value="#">28</option>
+				<option value="#">29</option>
+				<option value="#">30</option>
+				<option value="#">31</option>
+			</select>
+				<label for="select-h-6b">Month</label>
+				<select name="select-h-6b" id="select-h-6b" data-theme="b">
+				<option value="#">January</option>
+				<option value="#">Feburary</option>
+				<option value="#">March</option>
+				<option value="#">April</option>
+				<option value="#">May</option>
+				<option value="#">June</option>
+				<option value="#">July</option>
+				<option value="#">August</option>
+				<option value="#">September</option>
+				<option value="#">October</option>
+				<option value="#">Novemeber</option>
+				<option value="#">December</option>
+				
+			</select>
+				<label for="select-h-6c">Year</label>
+				<select name="select-h-6c" id="select-h-6c" data-theme="b">
+				<option value="#">2013</option>
+				<option value="#">2012</option>
+				<option value="#">2011</option>
+				<option value="#">2010</option>
+				<option value="#">2009</option>
+				<option value="#">2008</option>
+				<option value="#">2007</option>
+				<option value="#">2006</option>
+				<option value="#">2005</option>
+				<option value="#">2004</option>
+				<option value="#">2003</option>
+				<option value="#">2002</option>
+				<option value="#">2001</option>
+				<option value="#">2000</option>
+				<option value="#">1999</option>
+				<option value="#">1998</option>
+				<option value="#">1997</option>
+				<option value="#">1996</option>
+				<option value="#">1995</option>
+				<option value="#">1994</option>
+				<option value="#">1993</option>
+				<option value="#">1992</option>
+				<option value="#">1991</option>
+				<option value="#">1990</option>
+				<option value="#">1989</option>
+				<option value="#">1988</option>
+				<option value="#">1987</option>
+				<option value="#">1986</option>
+				<option value="#">1985</option>
+				<option value="#">1984</option>
+				<option value="#">1983</option>
+				<option value="#">1982</option>
+				<option value="#">1981</option>
+				<option value="#">1980</option>
+				<option value="#">1979</option>
+				<option value="#">1978</option>
+				<option value="#">1977</option>
+				<option value="#">1976</option>
+				<option value="#">1975</option>
+				<option value="#">1974</option>
+				<option value="#">1973</option>
+				<option value="#">1972</option>
+				<option value="#">1971</option>
+				<option value="#">1970</option>
+				<option value="#">1969</option>
+				<option value="#">1968</option>
+				<option value="#">1967</option>
+				<option value="#">1966</option>
+				<option value="#">1965</option>
+				<option value="#">1964</option>
+				<option value="#">1963</option>
+				<option value="#">1962</option>
+				<option value="#">1961</option>
+				<option value="#">1960</option>
+				<option value="#">1959</option>
+				<option value="#">1958</option>
+				<option value="#">1957</option>
+				<option value="#">1956</option>
+				<option value="#">1955</option>
+				<option value="#">1954</option>
+				<option value="#">1953</option>
+				<option value="#">1952</option>
+				<option value="#">1951</option>
+				<option value="#">1950</option>
+			</select>
+			</fieldset>
+			<fieldset data-role="fieldcontain"> 
+				<label for="email">Email:</label>
+				<input type="email" name="email" id="email" class="required email">
+			</fieldset>
+			<fieldset data-role="fieldcontain"> 
+				<label for="password2">Password:</label>
+				<input type="password" name="password2" id="password2" class="required">
+			</fieldset>
+ 			<fieldset data-role="fieldcontain"> 
+				<label for="password3">Confirm Password:</label>
+				<input type="password" name="password3" id="password3" class="required passmatch">
+			</fieldset>
+ 			<input type="submit" value="Register" data-theme="b">
+ 		</form>
+ 	</div>
+	
+</div>	
+<!-- ************************************************************************************************************************* -->
+
+<!-- ************************************************************************************************************************* -->
+ 
+<div data-role="page" id="Countiespage" data-add-back-btn="true" data-theme="c" data-transition="slide">
+ 
+<div data-role="header" data-theme="b"><a href="#homePage" data-icon="home" data-theme="b">Home</a><h1>Carlow Clinics:</h1></div>
+ 
+<div data-role="content">
+ 
+<ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
+    <li><a href="#Antrimpage">Antrim</a></li>
+    <li><a href="#Armaghpage">Armagh</a></li>
+    <li><a href="#Carlow">Carlow</a></li>
+    <li><a href="#Cavanpage">Cavan</a></li>
+    <li><a href="#Clarepage">Clare</a></li>
+    <li><a href="#Corkpage">Cork</a></li>
+    <li><a href="#Derrypage">Derry</a></li>
+	<li><a href="#Donegalpage">Donegal</a></li>
+    <li><a href="#Downpage">Down</a></li>
+    <li><a href="#dublin_clinics" data-transition="slidedown">Dublin<span class="ui-li-count" >4</span></a></li>
+    <li><a href="index.html">Fermanagh</a></li>
+    <li><a href="index.html">Galway</a></li>
+    <li><a href="index.html">Kerry</a></li>
+    <li><a href="#Kildarepage">Kildare</a></li>
+	<li><a href="index.html">Kilkenny</a></li>
+    <li><a href="index.html">Laois</a></li>
+    <li><a href="index.html">Leitrim</a></li>
+    <li><a href="index.html">Limerick</a></li>
+    <li><a href="index.html">Longford</a></li>
+    <li><a href="index.html">Louth</a></li>
+    <li><a href="index.html">Mayo</a></li>
+	<li><a href="index.html">Meath</a></li>
+    <li><a href="index.html">Monaghan</a></li>
+    <li><a href="index.html">Offaly</a></li>
+    <li><a href="index.html">Roscommon</a></li>
+    <li><a href="index.html">Sligo</a></li>
+    <li><a href="index.html">Tipperary</a></li>
+    <li><a href="index.html">Tyrone</a></li>
+	<li><a href="index.html">Waterford</a></li>
+    <li><a href="index.html">Westmeath</a></li>
+    <li><a href="index.html">Wexford</a></li>
+    <li><a href="#wicklow_clinics" data-transition="slidedown">Wicklow<span class="ui-li-count" >4</span></a></li>
+   
+</ul>
+ 
+</div>
+ 
+</div>
+
+<!-- ************************************************************************************************************************************ -->
+<!--This is the Carlow page-->
+<!-- ************************************************************************************************************************************ -->
+<div data-role="page" id="Carlowpage" data-theme="c">
+			<div data-role="header"><a href="#Countiespage" data-icon="back" data-theme="b">Back</a><h1>Carlow Clinics:</h1></div>
+					<div data-role="collapsible-set" data-theme="b" data-content-theme="b">
+						<div data-role="collapsible">
+								<h3>Carlow Dental Centre</h3>
+											<table><tr><!--<td><img src="images/doctors.jpg" alt="dentist2.jpg"></td>-->
+											  <td><img src="images/icon1.jpg" alt="dentist2.jpg">
+												<p>
+												Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic,
+												you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero.
+												And most times they're friends, like you and me! I should've known way back when... You know why,
+												David? Because of the kids. They called me Mr Glass.</td></tr></table>
+											 <br/>
+											 <br />
+		<ul data-role="listview" data-ajax="false" data-inset="true" data-theme="c">
+					<li><a href="#Gallery1" data-transition="slidedown">Images</a></li>
+					<li><a href="#ViewDentist" data-transition="slidedown">View Dentists</a></li>
+					<li><a href="#index" data-transition="slidedown">Location</a></li></ul>
+		</div>
+		
+						<div data-role="collapsible">
+									<h3>Pembroke Dental Clinic</h3>
+									<table><tr>
+											  <td><img src="images/icon4.jpg" alt="dentist2.jpg">
+												<p>
+												Private, PRSI and medical card patients are treated at this dental clinic located near the Post
+									Office in Carlow. A comprehensive spectrum of treatments are provided at the clinic. The services 
+									of a hygienist, routine dental examinations and cleaning, silver and white fillings, crowns, veneers,
+									implants, dentures, root canal treatments, simple extractions, in surgery and take home tooth whitening
+									are offered at the clinic. The staff assist patients with insurance claims and tax relief. Dentists at
+									the clinic use the latest dental techniques in modern well equipped surgeries.</td></tr></table>
+									
+												<br/>
+												<br/>
+			<ul data-role="listview" data-ajax="false" data-inset="true" data-theme="c">
+						<li><a href="#Gallery1" data-transition="slidedown">Images</a></li>
+						<li><a href="#ViewDentist2" data-transition="slidedown">View Dentists</a></li>
+						<li><a href="#index2" data-transition="slidedown">Location</a></li></ul>
+			</div>
+												
+			</div>
+    
+	<div data-role="collapsible" data-theme="c">
+									<h3>Kiwi Dental</h3>
+									<table><tr>
+									 <td><img src="images/icon5.jpg" alt="dentist2.jpg"><p>Kiwi Dental is located in Shamrock Plaza on the Dublin Road, Carlow. We offer professional dentistry
+									at affordable prices. Caroline Robins is the principal dentist in Kiwi Dental. She has been working
+									here since 2001. At Kiwi Dental, we provide you with a relaxing appointment in a friendly atmosphere.
+									We are aware that many people dislike going to the dentist and we make sure that all our clients feel
+									welcome and feel comfortable. If you are just nursing an ache, embarrassed by your smile or just want to
+									find out what your options are, just give us a call. We are too happy to help.  When you arrrive you will
+									be greeted with a smile and treated with honesty and respect.  We will never advise you on unnecessary
+									treatment.</p>
+									
+									Your dental experience will be good fun and not what you expected:
+									<br/>
+									<br/>
+								   "Let us help you put that smile back"</td></tr></table>
+	   
+											   <br/>
+											   <br/>
+						   <ul data-role="listview" data-ajax="false" data-inset="true" data-theme="c">
+									<li><a href="#Gallery1" data-transition="slidedown">Images</a></li>
+									<li><a href="#Caroline" data-transition="slidedown">View Caroline`s Schedule</a></li>
+									<li><a href="#index3" data-transition="slidedown">Location</a></li></ul>
+							</div>
+					 
+	
+	<div data-role="collapsible" data-theme="c">
+							<h3>Bernard Murphy Dental</h3>
+							<table><tr>
+							 <td><img src="images/icon1.jpg" alt="dentist2.jpg"><p>Dr. Bernard Murphy BDS NUI Bernard received his BDS qualification from University<br/>College Cork in 1990.
+							A native of Cork, Bernard worked in general practice in Kent, England after he graduated, until 1992.He then
+							returned to Ireland and opened his own dental practice at the Royal Oak Road in Bagenalstown, Co Carlow.The
+							practice relocated to its present premises on Kilree Street in 1996. Bernard later expanded the practice by
+							opening a branch practice in Bunclody, Co Wexford and in Carlow at St. Patrick’s Avenue, Staplestown Road.
+							He is continually expanding and upgrading the facilities in all three practices to improve the range of services
+							available to patients.Bernard has been actively involved in the Irish Dental Association since 1992 which is the
+							representative organisation of the profession in Ireland. He lives in Bagenalstown with his wife and three children.</p></td></tr></table>
+		
+		
+							<br/>
+							<br/>
+							<ul data-role="listview" data-ajax="false" data-inset="true" data-theme="c">
+									<li><a href="#Gallery1" data-transition="slidedown">Images</a></li>
+									<li><a href="#Schedule" data-transition="slidedown">View Schedule</a></li>
+									<li><a href="#index4" data-transition="slidedown">Location</a></li></ul>
+
+							</div>
+
+				<div data-theme="c" data-role="footer" data-position="fixed">
+						<h1>Footer</h1>
+				</div>							
+</div>
+<!-- ************************************************************ -->
+<!--This is the schedule for Carlow Dental Clinic-->
+<!-- ************************************************************ -->
+<div data-role="page" id="Schedule" data-theme="c"> 
+	<div data-role="header" data-theme="b"><a href="#homePage" data-icon="home" data-theme="b" data-transition="slidedown">Home</a> 
+				<h1>Please fill out the following:</h1>
+	</div>
+
+	<div data-role="content">
+		<div data-role="fieldcontain">
+			<label for="useTodayButton">Please choose a date:</label>
+			<input type="date" id="useTodayButton" name="useTodayButton" data-role="datebox"
+				data-options='{"useTodayButton":true,"useClearButton":true}'/>
+		</div>
+
+<form action="processData.php" method="POST">
+<label for="select-choice-8" class="select">Please select a service:</label>
+		<select name="select-choice-8" id="select-choice-8" multiple="multiple" data-native-menu="false" data-icon="grid" data-iconpos="left" data-theme="b">
+				<option>Choose any options:</option>
+				<optgroup label="Treatments">
+					<option value="standard" selected="">Teeth Cleaning</option>
+					<option value="rush">Philling Replacement</option>
+					<option value="express">General Checkup</option>
+					<option value="overnight">Tooth pulled</option>
+				</optgroup>
+				<optgroup label="Last Visit">
+					<option value="Less than 6 months">Less than 6 months</option>
+					<option value="Less than a year">Less than a year</option>
+					<option value="Over a year">Over a year</option>
+				</optgroup>
+			</select>
+			<br/>
+
+	<div id="notation">	
+	
+	<label class="select"><b>Please choose a Time:</b></label>
+		<select name="" id="time" data-native-menu="false" data-theme="b">
+		   <option value="one" class="one">08:00-09:00</option>
+		   <option value="two" class="two">09:00-10:00</option>
+		   <option value="three" class="three">10:00-11:00</option>
+		   <option value="four" class="four">11:00-12:00</option>
+		   <option value="one" class="one">12:00-13:00</option>
+		   <option value="two" class="two">14:00-15:00</option>
+		   <option value="three" class="three">15:00-16:00</option>
+		   <option value="four" class="four">16:00-17:00</option>
+		</select>	
+	
+		 
+				
+				<p><label for="name">Name:</label></p>
+				<p><input type="text" name="name" id="name" value=""></p>
+				
+				<p><label for="email2">E mail:</label></p>
+				<p><input type="text" name="email2" id="email2" value=""></p>
+				
+				<p><label for="age">Age:</label></p>
+				<p><input type="text" name="age" id="age" value=""></p>
+				
+				<p><label for="phone">Phone:</label></p>
+				<p><input type="text" name="phone" id="phone" value=""></p>
+				
+				<input type="submit" value="Submit" data-theme="b">
+				
+	</div></form>
+</div>
+</div>
+
+<!-- ******************************************************************************************************************************************** -->
+<!--This is the schedule for the pembrook dental clinic-->
+<!-- ******************************************************************************************************************************************** -->
+<div data-role="page" id="Schedule2" data-theme="c"> 
+	<div data-role="header"><a href="#Carlowpage" data-rel="back" data-transition="slidedown">Back</a> 
+		<h1>Please fill out the following:</h1>
+	</div>
+	<div data-role="content">
+	<div data-role="fieldcontain">
+		<label for="useTodayButton">Please choose a date:</label>
+			<input type="date" id="useTodayButton1" name="useTodayButton1" data-role="datebox"
+				data-options='{"useTodayButton":true,"useClearButton":true}' />
+				</div>
+
+
+<label for="select-choice-8" class="select">Please select a service:</label>
+<select name="treatment" id="treatment" multiple="multiple" data-native-menu="false" data-icon="grid" data-iconpos="left">
+    <option>Choose any options:</option>
+    <optgroup label="Treatments">
+        <option value="standard" selected="">Teeth Cleaning</option>
+        <option value="rush">Philling Replacement</option>
+        <option value="express">General Checkup</option>
+        <option value="overnight">Tooth pulled</option>
+    </optgroup>
+    <optgroup label="Last Visit">
+        <option value="Less than 6 months">Less than 6 months</option>
+        <option value="Less than a year">Less than a year</option>
+        <option value="Over a year">Over a year</option>
+    </optgroup>
+</select>
+<br/>
+
+ <div id="notation6">	
+	<form>
+	<label class="select"><b>Please choose a Time:</b></label>
+		<select name="" id="time1" data-native-menu="false" data-theme="c" >
+		   <option value="one" class="one">08:00-09:00</option>
+		   <option value="two" class="two">09:00-10:00</option>
+		   <option value="three" class="three">10:00-11:00</option>
+		   <option value="four" class="four">11:00-12:00</option>
+		   <option value="one" class="one">12:00-13:00</option>
+		   <option value="two" class="two">14:00-15:00</option>
+		   <option value="three" class="three">15:00-16:00</option>
+		   <option value="four" class="four">16:00-17:00</option>
+		</select>	
+	</form>
+	</div>
+		
+		<p><label for="name">Name:</label></p>
+		<p><input type="text" name="name" id="name1" value=""></p>
+		
+		<p><label for="email">E mail:</label></p>
+		<p><input type="text" name="email" id="email1" value=""></p>
+		
+		<p><label for="age">Age:</label></p>
+		<p><input type="text" name="age" id="age1" value=""></p>
+		
+		<p><label for="phone">Phone:</label></p>
+		<p><input type="text" name="phone" id="phone1" value=""></p>
+		
+		<input type="submit" value="Submit">
+	
+		
+</div>
+</div>
+
+<!-- ******************************************************************************************************************************************* -->
+
+<!-- ******************************************************************************************************************************************* -->
+
+
+	
+<!-- ************************************************************************************************************************************************* -->
+<!--This is the google map page for carlow dental clinic-->	
+<!-- ************************************************************************************************************************************************* -->
+
+<div data-role="page" id="index" data-theme="b">
+            <div data-role="header" data-theme="b">
+              <a href="#ShelbourneClinicpage" data-icon ="back" data-rel="back" data-theme="b" data-transition="slidedown">Back</a><h1>Shelbourne Dental Clinic</h1>
+            </div>
+            <div data-role="content" id="content">
+                <div id="map_canvas" style="height:100%"></div>
+            </div>
+            
+        </div>
+
+		
+<!-- **************************************************************************************************************************************************** -->
+<!--This is the google map page for Pembroke dental clinic-->			
+<!-- **************************************************************************************************************************************************** -->		
+<div data-role="page" id="index2" data-theme="c">
+            <div data-theme="a" data-role="header">
+              <a href="Schedule" data-rel="back" data-transition="slidedown">Back</a><h1>Pembroke Dental Clinic</h1>
+            </div>
+            <div data-role="content2" id="content2">
+                <div id="map_canvas2" style="height:100%"></div>
+            </div>
+            <div data-theme="a" data-role="footer" data-position="fixed">
+                <h1>Pembroke Dental Clinic</h1>
+            </div>
+        </div>
+<!-- ***************************************************************************************************************************************************** -->
+<!--This is the google map page for kiwi dental clinic-->	
+<!-- ****************************************************************************************************************************************************** -->
+<div data-role="page" id="index3">
+            <div data-theme="a" data-role="header">
+              <a href="Schedule" data-rel="back" data-transition="slidedown">Back</a><h1>Kiwi Dental Clinic</h1>
+            </div>
+            <div data-role="content3" id="content3">
+                <div id="map_canvas3" style="height:100%"></div>
+            </div>
+            <div data-theme="a" data-role="footer" data-position="fixed">
+                <h1>Kiwi Dental Clinic</h1>
+            </div>
+        </div>
+<!-- ******************************************************************************************************************************************************* -->
+<!--This is the google map page for Bernard Murphy dental clinic-->	
+<!-- ******************************************************************************************************************************************************* -->
+<div data-role="page" id="index4" data-theme="c">
+            <div data-theme="a" data-role="header">
+              <a href="Schedule" data-rel="back" data-transition="slidedown">Back</a><h1>Bernard Murphy Dental</h1>
+            </div>
+            <div data-role="content4" id="content4">
+                <div id="map_canvas4" style="height:100%"></div>
+            </div>
+            <div data-theme="a" data-role="footer" data-position="fixed">
+                <h1>Bernard Murphy Dental</h1>
+            </div>
+        </div>
+<!-- ********************************************************************************************************************************************************* -->
+<!--This is the view dentist page for the carlow dental clinic-->
+<!-- ********************************************************************************************************************************************************* -->
+<div data-role="page" id="ViewDentist" data-theme="c">
+  <div data-role="header" data-theme="b">
+    <a href="#ShelbourneClinicpage" data-rel="back" data-icon="back" data-theme="b" data-transition="slidedown">Back</a><h3>Available Dentists</h3>
+  </div>
+
+  <div data-role="content">
+  <br/>
+ <b><i>Please choose a Dentist:</i></b>
+  <br/>
+    <ul data-role="listview" data-inset="true">
+      <li>
+        <a href="#Barry">
+          <img src="images/barry2.jpg" alt="dentist2.jpg" />
+          <h1> Available</h1>
+          <p>Dr.Barry mc Gettigan</p>
+        </a>
+      </li>
+      <li>
+        <a href="#Arnis">
+          <img src="images/arnis.jpg" alt="dentist2.jpg" />
+          <h3>Available</h3>
+          <p>Dr.Arnis Luipks</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/paul.jpg" alt="dentist2.jpg" />
+          <h3>Unavailable</h3>
+          <p>Dr.Paul Smith</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- ********************************************************************************************************************************************************* -->
+<!--This is the view dentist page for the Pembroke dental clinic-->
+<!-- ********************************************************************************************************************************************************* -->
+<div data-role="page" id="ViewDentist2" data-theme="c">
+  <div data-role="header" data-theme="b">
+    <a href="#QuinsboroPage" data-icon="back" data-theme="b" data-transition="slidedown">Back</a><h3>Available Dentists</h3>
+  </div>
+
+  <div data-role="content">
+    <h3>Carlow Dental Clinic</h3>
+	<br />
+	<br />
+    <ul data-role="listview">
+      <li>
+        <a href="#Paul" data-transition="slidedown">
+          <img src="images/icon4.jpg" alt="dentist2.jpg" />
+          <h1> Available</h1>
+          <p>Dr.Paul White</p>
+        </a>
+      </li>
+      <li>
+        <a href="#Mark" data-transition="slidedown">
+          <img src="images/icon5.jpg" alt="dentist2.jpg" />
+          <h3>Available</h3>
+          <p>Dr.Mark Byrne</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/icon6.jpg" alt="dentist2.jpg" />
+          <h3>Unavailable</h3>
+          <p>Dr.Barry Byrne</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- ****************************************************************************************************************************************************** -->
+<!--This is the Doctor Barry page for the carlow dental clinic-->	
+<!-- ****************************************************************************************************************************************************** -->
+<div data-role="page" id="Barry">
+        <div data-role="header" data-theme="b">
+         <a href="ViewDentist" data-rel="back" data-icon="back" data-transition="slidedown">Back</a><h3>Barry`s schedule</h3>
+        </div><!-- /header -->
+       <div data-role="content">       
+            <div id='calendar' style="width:100%;"></div>
+		<br />
+		<br />
+		<ul data-role="listview" data-ajax="false" data-inset="true" data-theme="b">
+		<li><a href="#Schedule" data-theme="b">Book now!!!!!</a></li></ul>
+        </div><!-- /content -->
+    </div>
+<!-- ******************************************************************************************************************************************************** -->
+<!--This is the Doctor Arnis page for the carlow dental clinic-->	
+<!-- ********************************************************************************************************************************************************* -->
+<div data-role="page" id="Arnis" data-theme="c"> 
+	<div data-role="header" data-theme="b">
+	<a href="ViewDentist" data-rel="back" data-transition="slidedown">Back</a> 
+		<h1>Dr.Arnis</h1>
+	</div>
+	 <div data-role="content">       
+            <div id='calendar2' style="width:100%;"></div>
+		<br />
+		<br />
+		<ul data-role="listview" data-ajax="false" data-inset="true" data-theme="d">
+		<li><a href="#Schedule" data-transition="slidedown">Book now!!!!!</a></li></ul>
+        </div><!-- /content -->
+	</div>
+<!-- ******************************************************************************************************************************************************** -->
+<!--This is the Doctor Paul page for the Pembroke dental clinic-->	
+<!-- ******************************************************************************************************************************************************** -->
+<div data-role="page" id="Paul" data-theme="c"> 
+	<div data-role="header" data-theme="b">
+	<a href="ViewDentist" data-rel="back" data-transition="slidedown">Back</a> 
+		<h1>Dr.Paul</h1>
+	</div>
+	<div data-role="content">
+			<p>Paul is great</p>
+		</div>
+	</div>
+<!-- ******************************************************************************************************************************************************** -->
+<!--This is the Doctor Mark page for the Pembroke dental clinic-->
+<!-- ******************************************************************************************************************************************************** -->
+<div data-role="page" id="Mark" data-theme="c"> 
+	<div data-role="header"><a href="ViewDentist" data-rel="back" data-transition="slidedown">Back</a> 
+		<h1>Dr.Mark</h1>
+	</div>
+	<div data-role="content">
+			<p>Mark is great</p>
+		</div>
+	</div>
+<!-- ********************************************************************************************************************************************************** -->
+<!--This is the Doctor Caroline page for the Kiwi dental clinic-->
+<!-- ********************************************************************************************************************************************************** -->
+<div data-role="page" id="Caroline" data-theme="c"> 
+	<div data-role="header"><a href="Carlowpage" data-rel="back" data-transition="slidedown">Back</a> 
+		<h1>Dr.Caroline Robins</h1>
+	</div>
+	<div data-role="content">       
+            <div id='calendar3' style="width:100%;"></div>
+		<br />
+		<br />
+		<ul data-role="listview" data-ajax="false" data-inset="true" data-theme="d">
+		<li><a href="#Schedule">Book now!!!!!</a></li></ul>
+        </div><!-- /content -->
+	</div>	
+<!-- ********************************************************************************************************************************************************* -->
+<!--This is the image gallery page for the Carlow dental clinic-->
+<!-- ********************************************************************************************************************************************************** -->
+<div data-role="page" id="Gallery1" class="gallery-page" rel="external" data-theme="c"> 
+<div data-role="header" data-theme="b"><a href="#ShelbourneClinicpage" data-icon="back" rel="external" data-theme="b" data-transition="slidedown">Back</a><h1>Carlow Dental Clinic</h1></div>
+		
+		<div data-role="page-content" >	
+		
+		<div id="gallery">
+			<ul class="gallery">
+			<li><a href="images/full/dentistclinic1.jpg" rel="external"><img src="images/thumb/dentistclinic1.jpg" alt="Image 001" /></a></li>
+			<li><a href="images/full/dentistclinic2.jpg" rel="external"><img src="images/thumb/dentistclinic2.jpg" alt="Image 002" /></a></li>
+			<li><a href="images/full/dentistclinic3.jpg" rel="external"><img src="images/thumb/dentistclinic3.jpg" alt="Image 003" /></a></li>
+			<li><a href="images/full/dentistclinic4.jpg" rel="external"><img src="images/thumb/dentistclinic4.jpg" alt="Image 004" /></a></li>
+			<li><a href="images/full/dentistclinic5.jpg" rel="external"><img src="images/thumb/dentistclinic5.jpg" alt="Image 005" /></a></li>
+			<li><a href="images/full/dentistclinic6.jpg" rel="external"><img src="images/thumb/dentistclinic6.jpg" alt="Image 006" /></a></li>
+			<li><a href="images/full/dentistclinic7.jpg" rel="external"><img src="images/thumb/dentistclinic7.jpg" alt="Image 007" /></a></li>
+			<li><a href="images/full/dentistclinic8.jpg" rel="external"><img src="images/thumb/dentistclinic8.jpg" alt="Image 008" /></a></li>
+			<li><a href="images/full/dentistclinic9.jpg" rel="external"><img src="images/thumb/dentistclinic9.jpg" alt="Image 009" /></a></li>
+			</ul>
+		</div>
+	</div>
+	
+</div>
+
+<div data-role="page" id="Gallery2" class="gallery-page" rel="external" data-theme="c"> 
+<div data-role="header" data-theme="b"><a href="#homePage" rel="external" data-icon="back" data-theme="b" data-transition="slidedown">Back</a><h1>Carlow Dental Clinic</h1></div>
+		
+		<div data-role="page-content" >	
+		
+		<div id="gallery2">
+		<ul  class="gallery">
+			<li><a href="images/full/good6.jpg" rel="external"><img src="images/thumb/good6.jpg" alt="Image 001" /></a></li>
+			<li><a href="images/full/good.jpg" rel="external"><img src="images/thumb/good.jpg" alt="Image 002" /></a></li>
+			<li><a href="images/full/good2.jpg" rel="external"><img src="images/thumb/good2.jpg" alt="Image 003" /></a></li>
+			<li><a href="images/full/good3.jpg" rel="external"><img src="images/thumb/good3.jpg" alt="Image 004" /></a></li>
+			<li><a href="images/full/good4.jpg" rel="external"><img src="images/thumb/good4.jpg" alt="Image 005" /></a></li>
+			<li><a href="images/full/good5.jpg" rel="external"><img src="images/thumb/good5.jpg" alt="Image 006" /></a></li>
+			<li><a href="images/full/good6.jpg" rel="external"><img src="images/thumb/good6.jpg" alt="Image 007" /></a></li>
+			<li><a href="images/full/good7.jpg" rel="external"><img src="images/thumb/good7.jpg" alt="Image 008" /></a></li>
+			<li><a href="images/full/good8.jpg" rel="external"><img src="images/thumb/good8.jpg" alt="Image 009" /></a></li>
+		</ul>
+		</div>
+	</div>
+	 
+</div>
+<!-- ******************************************************************************************************************************************************* -->
+<!--This is the Dublin clinics pages -->
+<!-- ******************************************************************************************************************************************************** -->
+<div data-role="page" id="ShelbourneClinicpage" data-theme="c">
+<div data-role="header" data-theme="b"><a href="#dublin_clinics" data-icon="back" data-theme="b" data-transition="slidedown">Back</a><h1>Dublin Clinics:</h1></div>
+<div data-role="content">
+	<div class="ui-grid-a" id="ShelbourneClinicInfo">	
+		<div class="ui-block-a">
+		<h1><b>Shelbourne Dental</b></h1>
+		<table><tr><td><b><i><u>About us:</u></i></b><br/>
+		<p class="padding">Established in Dublin in 2006, Shelbourne Dental Clinic is a state of the art 2,000 square ft dental facility in the
+		heart of the dynamic South Docklands close to the Grand Canal Theatre & Ringsend village.
+		</p></td></tr>
+		<tr><td><b><i><u>Price List:</u></i></b>
+			<ul> 
+				<li>Examination €35</li>
+				<li>Scale & Polish €45</li>
+				<li>Examination, Scale and Polish €75</li>
+			</ul>
+		</td></tr></table>
+		</div>		
+		<div class="ui-block-b">
+		<p class="padding"><img src="images/shelbourne2.jpg" alt="jeannette photo"/>
+		<br />
+		<br/>
+		<br />
+		<br/>
+		<br />
+		<br/>
+		<br />
+		<br/>
+		<table><tr><td><p class="padding2"><a href="http://shelbourneclinic.ie/?gclid=COa805n95roCFcFf2wodq1EAkQ" rel="external" data-role="button" data-theme="b">View Our Website       </a>
+		<a href="#ViewDentist" rel="external" data-role="button" data-theme="b" >Book Now</a>
+		<a href="#Gallery1" rel="external" data-role="button" data-theme="b">Photo Gallery</a></p></td></tr></table>
+		</div>
+	</div><!-- /grid-a -->
+	<hr/>
+		<div class="ui-grid-a" id="ShelbourneClinicContactInfo">	
+		<div class="ui-block-a">
+		<table><tr><td><b><i><u>Contact us:</u></i></b>
+			<p class="padding">7 Grand Canal Wharf,<br/>
+								South Dock Rd,<br />
+								Dublin 4<br/>
+								Phone: 01 6655900<br/>
+								Fax: 01 6655901</p></td></tr></table>
+			</div>		
+		<div class="ui-block-b">
+		<img src="images/data=VLHX1wd2Cgu8wR6jwyh-km8JBWAkEzU4,gTnYOvLf-qqpyOyJuKncN8H7GL5Jgvn19M6f2rza4RIDWXLdFQMtmWVcWyHvvA06Jg_1qD0nG9eMhZn126X2uavLxWpYqAZfIxUm1U07ZiH2QDqlwg3Mi6uWZx0.png" alt="plan jeanette"/>
+		</div>
+	</div><!-- /grid-a -->
+	<div id="contact_buttons">	
+		<a href="#index" data-role="button" data-theme="b" data-icon="maps"> Find us on Google Maps </a> 	
+		<a href="" data-role="button" data-theme="b" data-icon="tel">Call us </a>	
+	</div>	
+	<hr/>
+	<div id="notation7">	
+	<form>
+	<label class="select"><b>User rating</b></label>
+		<select name="note_utilisateur" id="note_utilisateur"  data-native-menu="false" data-theme="b">
+		   <option value="one" class="one"> Not good at all </option>
+		   <option value="two" class="two">Average </option>
+		   <option value="three" class="three">Pretty good </option>
+		   <option value="four" class="four"> Excellent </option>
+		</select>	
+	</form>
+	</div>
+	<script type="text/javascript">
+	$( '#restau' ).live( 'pageinit',function(event){
+		var SelectedOptionClass = $('option:selected').attr('class');
+		$('div.ui-select').addClass(SelectedOptionClass);
+		
+		$('#note_utilisateur').live('change', function(){	 
+			$('div.ui-select').removeClass(SelectedOptionClass);
+			
+			SelectedOptionClass = $('option:selected').attr('class');
+			$('div.ui-select').addClass(SelectedOptionClass);		
+			
+		 });
+	});
+	</script>
+	</div>
+<!-- ******************************************************************************************************************************************************* -->
+
+<!-- ******************************************************************************************************************************************************* -->
+<div data-role="page" id="MerrionDentistrypage" data-theme="c">
+<div data-role="header" data-theme="b"><a href="#dublin_clinics" data-icon="back" data-theme="b" data-transition="slidedown">Back</a><h1>Dublin Clinics:</h1></div>
+<div data-role="content">
+	<div class="ui-grid-a" id="restau_infos5">	
+		<div class="ui-block-a">
+		<h1>Merrion Dentistry</h1>
+		<p>Merrion Dentistry  is a long established dental practice located in Stillorgan Shopping Centre, South Dublin. We provide a friendly, relaxed
+		and fully committed environment which is centred on providing the best care necessary for your long-term dental, oral and general health.</p>
+		<p> Price List: </p>
+			<ul> 
+				<li>Examination €35</li>
+				<li>Scale & Polish €45 </li>
+				<li>Examination, Scale and Polish €75 </li>
+			</ul>			
+		</div>		
+		<div class="ui-block-b">
+		<p><img src="images/merrion3.jpg" alt="jeannette photo"/></p>
+		<br />
+		<br/>
+		<br />
+		<br/>
+		<br />
+		<br/>
+		<br />
+		<br/>
+		<p><a href="http://stillorganvillage.com/store/merrion-dentistry/" rel="external" data-role="button">See our website</a></p>
+		<p><a href="#ViewDentist" rel="external" data-role="button">View Dentists</a></p>
+		<p><a href="#Gallery1" rel="external" data-role="button">Photo Gallery</a></p>
+		</div>
+	</div><!-- /grid-a -->
+	<hr/>
+	
+	<div class="ui-grid-a" id="contact_infos5">	
+		<div class="ui-block-a">
+		<h2> Contact us</h2>
+			<p>Lower Kilmacud Road,</p>
+			<p>Stillorgan</p>
+			<p>County Dublin,</p>
+			<p>Ireland.</p>
+		</div>		
+		<div class="ui-block-b">
+		<img src="images/data=VLHX1wd2Cgu8wR6jwyh-km8JBWAkEzU4,PEqL-J4SwYFnBJiGuPPjaeGpWycY92KdmOIjE7jza_VjVXF3-NxEouTrOahPEjzL2fBjR2O6cg_rzfPV1M2-OMc9dMeudwHX4g76GlkYlJqI0zGTCJPbgVpKn1I&amp;w=226&amp;h=160.png" alt="plan jeanette"/>
+		</div>
+	</div><!-- /grid-a -->
+	<div id="contact_buttons5">	
+		<a href="https://maps.google.ie/maps?ie=UTF-8&amp;q=Merrion+Dentistry&amp;fb=1&amp;gl=ie&amp;hq=merrion+dentistry&amp;cid=0,0,13582096552944130114&amp;ei=BvOJUrWgKoXxhQfJsIDADA&amp;ved=0CJABEPwSMAs" data-role="button" data-icon="maps"> Find us on Google Maps </a> 	
+		<a href="" data-role="button" data-icon="tel">Call us </a>	
+	</div>	
+	<hr/>
+	
+	<div id="notation5">	
+	<form>
+	<label class="select"><b>User rating</b></label>
+		<select name="note_utilisateur" id="note_utilisateur5" data-native-menu="false" data-theme="c" >
+		   <option value="one" class="one"> Not good at all </option>
+		   <option value="two" class="two">Average </option>
+		   <option value="three" class="three">Pretty good </option>
+		   <option value="four" class="four"> Excellent </option>
+		</select>	
+	</form>
+	</div>
+	<script type="text/javascript">
+	$( '#restau' ).live( 'pageinit',function(event){
+		var SelectedOptionClass = $('option:selected').attr('class');
+		$('div.ui-select').addClass(SelectedOptionClass);
+		
+		$('#note_utilisateur').live('change', function(){	 
+			$('div.ui-select').removeClass(SelectedOptionClass);
+			
+			SelectedOptionClass = $('option:selected').attr('class');
+			$('div.ui-select').addClass(SelectedOptionClass);		
+			
+		 });
+	});
+	</script>
+	</div>
+	</div>
+</div>
+<!-- ******************************************************************************************************************************************************** -->
+
+<!-- ******************************************************************************************************************************************************** -->
+<div data-role="page" id="KildarePage" data-add-back-btn="true" data-theme="c">
+<div data-role="header"><a href="#Leinster" data-icon="back" data-transition="slidedown">Back</a><h1>Kildare Clinics:</h1></div>
+</div>
+<div data-role="page" id="Kilkennypage">
+<div data-role="header"><a href="#Leinster" data-icon="back">Back</a><h1>Kilkenny Clinics:</h1></div>
+<div data-role="content">
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+    <div data-role="collapsible">
+        <h3>Clinic 1</h3>
+        <p>I'm the collapsible content for section 1</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Clinic 2</h3>
+        <p>I'm the collapsible content for section 2</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Clinic 3</h3>
+        <p>I'm the collapsible content for section 3</p>
+    </div>
+</div>
+</div>
+<div data-theme="a" data-role="footer" data-position="fixed">
+                <h1>Dental Clinic</h1>
+            </div>
+</div>
+<!-- ********************************************************************************************************************************************************** -->
+
+<!-- ********************************************************************************************************************************************************** -->
+<div data-role="page" id="Laoispage" data-theme="c">
+<div data-role="header"><a href="#Leinster" data-icon="back">Back</a><h1>Laois Clinics:</h1></div>
+<div data-role="content">
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+    <div data-role="collapsible">
+        <h3>Clinic 1</h3>
+        <p>I'm the collapsible content for section 1</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Clinic 2</h3>
+        <p>I'm the collapsible content for section 2</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Clinic 3</h3>
+        <p>I'm the collapsible content for section 3</p>
+    </div>
+</div>
+</div>
+<div data-theme="a" data-role="footer" data-position="fixed">
+                <h1>Dental Clinic</h1>
+            </div>
+</div>
+<!-- ********************************************************************************************************************************************************* -->
+
+<!-- ********************************************************************************************************************************************************** -->
+<div data-role="page" id="Longfordpage" data-theme="c">
+<div data-role="header"><a href="#Leinster" data-icon="back">Back</a><h1>Longford Clinics:</h1></div>
+<div data-role="content">
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+    <div data-role="collapsible">
+        <h3>Clinic 1</h3>
+        <p>I'm the collapsible content for section 1</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Clinic 2</h3>
+        <p>I'm the collapsible content for section 2</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Clinic 3</h3>
+        <p>I'm the collapsible content for section 3</p>
+    </div>
+</div>
+</div>
+<div data-theme="a" data-role="footer" data-position="fixed">
+                <h1>Dental Clinic</h1>
+            </div>
+
+</div>
+<!-- ********************************************************************************************************************************************************** -->
+
+<!-- *********************************************************************************************************************************************************** -->
+<div data-role="page" id="Louthpage" data-theme="c">
+<div data-role="header"><a href="#Leinster" data-icon="back">Back</a><h1>Louth Clinics:</h1></div>
+<div data-role="content">
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+    <div data-role="collapsible">
+        <h3>Clinic 1</h3>
+        <p>I'm the collapsible content for section 1</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Clinic 2</h3>
+        <p>I'm the collapsible content for section 2</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Clinic 3</h3>
+        <p>I'm the collapsible content for section 3</p>
+    </div>
+</div>
+</div>
+<div data-theme="a" data-role="footer" data-position="fixed">
+                <h1>Dental Clinic</h1>
+            </div>
+
+</div>
+<!-- ********************************************************************************************************************************************************* -->
+
+<!-- ********************************************************************************************************************************************************* -->
+<div data-role="page" id="Meathpage" data-theme="c">
+<div data-role="header"><a href="#Leinster" data-icon="back">Back</a><h1>Meath Clinics:</h1></div>
+<div data-role="content">
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+    <div data-role="collapsible">
+        <h3>Clinic 1</h3>
+        <p>I'm the collapsible content for section 1</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Clinic 2</h3>
+        <p>I'm the collapsible content for section 2</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Clinic 3</h3>
+        <p>I'm the collapsible content for section 3</p>
+    </div>
+</div>
+</div>
+<div data-theme="a" data-role="footer" data-position="fixed">
+                <h1>Dental Clinic</h1>
+            </div>
+</div>
+<!-- ******************************************************************************************************************************************************** -->
+
+<!-- ********************************************************************************************************************************************************* -->
+<div data-role="page" id="Offalypage" data-theme="c">
+<div data-role="header"><a href="#Leinster" data-icon="back">Back</a><h1>Offaly Clinics:</h1></div>
+<div data-role="content">
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+    <div data-role="collapsible">
+        <h3>Clinic 1</h3>
+        <p>I'm the collapsible content for section 1</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Clinic 2</h3>
+        <p>I'm the collapsible content for section 2</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Clinic 3</h3>
+        <p>I'm the collapsible content for section 3</p>
+    </div>
+</div>
+</div>
+<div data-theme="a" data-role="footer" data-position="fixed">
+                <h1>Dental Clinic</h1>
+            </div>
+</div>
+<!-- ********************************************************************************************************************************************************** -->
+
+<!-- *********************************************************************************************************************************************************** -->
+<div data-role="page" id="Westmeathpage" data-theme="c">
+<div data-role="header"><a href="#Leinster" data-icon="back">Back</a><h1>Westmeath Clinics:</h1></div>
+<div data-role="content">
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+    <div data-role="collapsible">
+        <h3>Clinic 1</h3>
+        <p>I'm the collapsible content for section 1</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Clinic 2</h3>
+        <p>I'm the collapsible content for section 2</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Clinic 3</h3>
+        <p>I'm the collapsible content for section 3</p>
+    </div>
+</div>
+</div>
+<div data-theme="a" data-role="footer" data-position="fixed">
+                <h1>Dental Clinic</h1>
+            </div>
+</div>
+<!-- ********************************************************************************************************************************************************** -->
+
+<!-- *********************************************************************************************************************************************************** -->
+<div data-role="page" id="Wexfordpage" data-theme="c">
+<div data-role="header"><a href="#Leinster" data-icon="back">Back</a><h1>Wexford Clinics:</h1></div>
+<div data-role="content">
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+    <div data-role="collapsible">
+        <h3>Clinic 1</h3>
+        <p>I'm the collapsible content for section 1</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Clinic 2</h3>
+        <p>I'm the collapsible content for section 2</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Clinic 3</h3>
+        <p>I'm the collapsible content for section 3</p>
+    </div>
+</div>
+</div>
+<div data-theme="a" data-role="footer" data-position="fixed">
+                <h1>Dental Clinic</h1>
+            </div>
+</div>
+<!-- ********************************************************************************************************************************************************* -->
+<!--This is the start of the wicklow clinics section-->
+<!-- ********************************************************************************************************************************************************* -->
+<div id="wicklow_clinics" data-role="page" data-theme="c">
+		<div data-role="header" data-theme="b"><a href="#Countiespage" data-icon="back" data-theme="b">Back</a> 
+		<h1>Dental Picker</h1>
+	</div> 
+	<div data-role="content">
+	<div class="choice_list">
+	<br/>
+	<b><i>Please choose a clinic:</i></b>
+	<ul data-role="listview" data-inset="true" >
+	<li><a href="#WicklowDentalpage" data-transition="slidedown"> <img src="images/icon14.jpg" alt="plan jeanette"/> <h2>Wicklow Dental</h2> <p class="classement four"> 4 stars  </p></a></li>
+	<li><a href="#WicklowDentalpage" data-transition="slidedown"> <img src="images/icon14.jpg" alt="plan jeanette"/> <h2>Westmount Dental Clinic </h2> <p class="classement four"> 4 stars  </p> </a></li>
+	<li><a href="#WicklowDentalpage" data-transition="slidedown"> <img src="images/icon14.jpg" alt="plan jeanette"/> <h2>Smiles Dental</h2> <p class="classement one"> 1 star  </p> </a></li>
+	<li><a href="#WicklowDentalpage" data-transition="slidedown"> <img src="images/icon14.jpg" alt="plan jeanette"/> <h2>Quinsboro Dental</h2> <p class="classement three"> 3 stars  </p> </a></li>
+	</ul>	
+	</div>
+	</div>
+</div>
+<!-- ******************************************************************************************************************************************************** -->
+<!-- /page -->
+<!-- ******************************************************************************************************************************************************** -->
+<div id="dublin_clinics" data-role="page" data-theme="c">
+		<div data-role="header" data-theme="b"><a href="#Countiespage" data-icon="back" data-theme="b" data-transition="slidedown">Back</a> 
+		<h1>Dental Picker</h1>
+	</div> 
+	<div data-role="content">
+	<div class="choice_list"> 
+	<br/>
+	<b><i>Please choose a clinic:</i></b>
+	<ul data-role="listview" data-inset="true" >
+	<li><a href="#ShelbourneClinicpage" data-transition="slidedown"> <img src="images/merrion2.jpg" alt="plan jeanette"/> <h2>Shelbourne Dental </h2> <p class="classement four"> 4 stars  </p></a></li>
+	<li><a href="#ShelbourneClinicpage" data-transition="slidedown"> <img src="images/merrion2.jpg" alt="plan jeanette"/> <h2>Merrion Dentistry</h2> <p class="classement four"> 4 stars  </p> </a></li>
+	<li><a href="#ShelbourneClinicpage" data-transition="slidedown"> <img src="images/merrion2.jpg" alt="plan jeanette"/> <h2>Dublin Dentist</h2> <p class="classement one"> 1 star  </p> </a></li>
+	<li><a href="#ShelbourneClinicpage" data-transition="slidedown"><img src="images/merrion2.jpg" alt="plan jeanette"/><h2>Fredrick Dental </h2> <p class="classement three"> 3 stars  </p> </a></li>
+	</ul>	
+	</div>
+	</div>
+</div>
+<!-- ****************************************************************************************************************************************************** -->
+<!-- /page -->
+<!-- ******************************************************************************************************************************************************* -->
+<div data-role="page" id="WicklowDentalpage" data-theme="c">
+<div data-role="header" data-theme="b"><a href="#wicklow_clinics" data-icon="back" data-theme="b" data-transition="slidedown">Back</a><h1>Wicklow Clinics:</h1></div>
+<div data-role="content">
+	<div class="ui-grid-a" id="WicklowDental">	
+		<div class="ui-block-a">
+		<h1><b>Wicklow Dental</b></h1>
+		<table><tr><td><b><i><u>About us:</u></i></b>
+		
+			<p class="padding">Wicklow Dental is a modern dental practice in the heart of Wicklow town.
+		   The practice is run by Dr Niall McCartan who provides the highest quality
+		   dental treatment at affordable prices.</p></td></tr>
+		
+		<tr><td><b><i><u>Price List:</u></i></b>
+			<ul> 
+				<li>Examination €35</li>
+				<li>Scale & Polish €45 </li>
+				<li>Examination, Scale and Polish €75</li>
+			</ul>
+
+</td></tr></table>			
+		</div>	
+		
+		<div class="ui-block-b">
+		<p class="padding"><img src="images/clinic.jpg" alt="jeannette photo"/></p>
+		<br />
+		<br/>
+		<br />
+		<br/>
+		<br />
+		<br/>
+		<br />
+		<br/>
+		<table><tr><td><p class="padding2"><a href="http://shelbourneclinic.ie/?gclid=COa805n95roCFcFf2wodq1EAkQ" rel="external" data-role="button" data-theme="b">View Our Website       </a>
+		<a href="#ViewDentist" rel="external" data-role="button" data-theme="b" >Book Now</a>
+		<a href="#Gallery1" rel="external" data-role="button" data-theme="b">Photo Gallery</a></p></td></tr></table>
+		</div>
+	</div><!-- /grid-a -->
+	<hr/>
+		<div class="ui-grid-a" id="WicklowDentalContact">	
+		<div class="ui-block-a">
+		<table><tr><td><b><i><u>Contact us:</u></i></b>
+		<p class="padding">Wicklow Dental,<br/>
+		First Floor Unit,<br/>
+	    Butlers Medical Hall Pharmacy<br/>
+		Abbey Street,<br/>
+		Wicklow<br/>
+		Co. Wicklow</p></td></tr></table>
+		</div>		
+		<div class="ui-block-b">
+		<img src="images/data=VLHX1wd2Cgu8wR6jwyh-km8JBWAkEzU4,gTnYOvLf-qqpyOyJuKncN8H7GL5Jgvn19M6f2rza4RIDWXLdFQMtmWVcWyHvvA06Jg_1qD0nG9eMhZn126X2uavLxWpYqAZfIxUm1U07ZiH2QDqlwg3Mi6uWZx0.png" alt="plan jeanette"/>
+		</div>
+	</div><!-- /grid-a -->
+	<div id="WicklowDentalcontact_buttons">	
+		<a href="https://maps.google.com/maps?f=q&amp;geocode=&amp;q=Wicklow+Dental,+1st+Floor+Unit,+Butlers+Medical+Hall+Pharmacy,+Abbey+St.,+Wicklow%4052.980428,-6.04406&amp;aq=0&amp;t=m&amp;ll=52.980428,-6.04406&amp;spn=0.00082,0.002411&amp;z=16&amp;output=embed" data-role="button" data-icon="maps" data-theme="b"> Find us on Google Maps </a> 	
+		<a href="" data-role="button" data-icon="tel" data-theme="b"> Call us </a>	
+	</div>	
+	<hr/>
+		<div id="WicklowDentalnotation">	
+	<form>
+	<label class="select"><b>User rating</b></label>
+		<select name="note_utilisateur" id="note_utilisateur1" data-native-menu="false" data-theme="b" >
+		   <option value="one" class="one"> Not good at all </option>
+		   <option value="two" class="two">Average </option>
+		   <option value="three" class="three">Pretty good </option>
+		   <option value="four" class="four"> Excellent </option>
+		</select>	
+	</form>
+	</div>
+	<script type="text/javascript">
+
+	$( '#restau' ).live( 'pageinit',function(event){
+		var SelectedOptionClass = $('option:selected').attr('class');
+		$('div.ui-select').addClass(SelectedOptionClass);
+		
+		$('#note_utilisateur').live('change', function(){	 
+			$('div.ui-select').removeClass(SelectedOptionClass);
+			
+			SelectedOptionClass = $('option:selected').attr('class');
+			$('div.ui-select').addClass(SelectedOptionClass);		
+			
+		 });
+	});
+	</script>
+	</div>
+			
+</div>
+<!-- ******************************************************************************************************************************************************** -->
+
+<!-- ******************************************************************************************************************************************************** -->
+<div data-role="page" id="WestmountDental" data-theme="c">
+<div data-role="header"><a href="#wicklow_clinics" data-icon="back" data-theme="b" data-transition="slidedown">Back</a><h1>Wicklow Clinics:</h1></div>
+<div data-role="content">
+	<div class="ui-grid-a" id="restau_infos2">	
+		<div class="ui-block-a">
+		<h1>Westmount Dental Clinic</h1>
+		<p>Westmount Dental Practice is a long established dentistry located in Wicklow town, Co. Wicklow. We provide
+		   a friendly, relaxed and fully committed environment which is centred on providing the best care necessary for
+		   your long-term dental, oral and general health.</p>
+		<p> Dental Services: </p>
+			<ul> 
+				<li>Dentures</li>
+				<li>Gum Disease</li>
+				<li>Cleaning</li>
+			</ul>			
+		</div>		
+		<div class="ui-block-b">
+		<p><img src="images/westmount2.jpg" alt="jeannette photo"/></p>
+		<br />
+		<br/>
+		<br />
+		<br/>
+		<br />
+		<br/>
+		<br />
+		<br/>
+		<p><a href="http://www.dentist-wicklow.ie/" rel="external" data-role="button"> See our website</a></p>
+		<p><a href="#ViewDentist" rel="external" data-role="button"> View Dentists</a></p>
+		<p><a href="#Gallery1" rel="external" data-role="button">Photo Gallery</a></p>
+		</div>
+	</div><!-- /grid-a -->
+	<hr/>
+		<div class="ui-grid-a" id="contact_infos2">	
+		<div class="ui-block-a">
+		<h2>Contact us</h2>
+		<p>Westmount Dental Practice,</p>
+		<p>Church Hill,</p>
+		<p>Wicklow,</p>
+		<p>Co. Wicklow,</p>
+		<p>Ireland.</p>
+		</div>		
+		<div class="ui-block-b">
+		<img src="data=VLHX1wd2Cgu8wR6jwyh-km8JBWAkEzU4,gTnYOvLf-qqpyOyJuKncN8H7GL5Jgvn19M6f2rza4RIDWXLdFQMtmWVcWyHvvA06Jg_1qD0nG9eMhZn126X2uavLxWpYqAZfIxUm1U07ZiH2QDqlwg3Mi6uWZx0.png" alt="plan jeanette"/>
+		</div>
+	</div><!-- /grid-a -->
+	<div id="contact_buttons2">	
+		<a href="https://maps.google.com/maps?f=q&amp;geocode=&amp;q=Wicklow+Dental,+1st+Floor+Unit,+Butlers+Medical+Hall+Pharmacy,+Abbey+St.,+Wicklow%4052.980428,-6.04406&amp;aq=0&amp;t=m&amp;ll=52.980428,-6.04406&amp;spn=0.00082,0.002411&amp;z=16&amp;output=embed" data-role="button" data-icon="maps"> Find us on Google Maps </a> 	
+		<a href="" data-role="button" data-icon="tel"> Call us </a>	
+	</div>	
+	<hr/>
+		<div id="notation2">	
+	<form>
+	<label class="select"><b>User rating</b></label>
+		<select name="note_utilisateur" id="note_utilisateur2" data-native-menu="false" data-theme="c" >
+		   <option value="one" class="one"> Not good at all </option>
+		   <option value="two" class="two">Average </option>
+		   <option value="three" class="three">Pretty good </option>
+		   <option value="four" class="four"> Excellent </option>
+		</select>	
+	</form>
+	</div>
+	<script type="text/javascript">
+	$( '#restau' ).live( 'pageinit',function(event){
+		var SelectedOptionClass = $('option:selected').attr('class');
+		$('div.ui-select').addClass(SelectedOptionClass);
+		
+		$('#note_utilisateur').live('change', function(){	 
+			$('div.ui-select').removeClass(SelectedOptionClass);
+			
+			SelectedOptionClass = $('option:selected').attr('class');
+			$('div.ui-select').addClass(SelectedOptionClass);		
+			
+		 });
+	});
+	</script>
+	</div>
+<div  data-role="footer" data-theme="b">
+                <h1>Dental Clinic</h1>
+            </div>
+</div>
+<!-- ******************************************************************************************************************************************************** -->
+
+<!-- ******************************************************************************************************************************************************** -->
+<div data-role="page" id="SmilesDental" data-theme="c">
+<div data-role="header"><a href="#wicklow_clinics" data-icon="back" data-theme="b" data-transition="slidedown">Back</a><h1>Wicklow Clinics:</h1></div>
+<div data-role="content">
+	<div class="ui-grid-a" id="restau_infos3">	
+		<div class="ui-block-a">
+		<h1>Smiles Dental</h1>
+		<p>Located at the top of the town in Suite 1, Town Hall Court, Main Street, Bray. This busy clinic consists of 4
+     	   experienced dentists, a hygienist, an orthodontist and a superb support team to guide you through your treatment.
+		   Nervous patients especially welcome. We provide a full general dental service including emergency and cosmetic 
+		   dentistry, dental crowns, veneers and orthodontics. </p>
+		<p>Opening Hours: </p>
+			<ul> 
+				<li>Monday to Saturday</li>
+				<li>08.00am	- 08.00pm</li>
+			</ul>			
+		</div>		
+		<div class="ui-block-b">
+		<p><img src="images/smiles2.jpg" alt="jeannette photo"/></p>
+		<br />
+		<br/>
+		<br />
+		<br/>
+		<br />
+		<br/>
+		<br />
+		<br/>
+		<p><a href="http://www.smiles.ie/clinic/smiles-dental-bray/" rel="external" data-role="button"> See our website</a></p>
+		<p><a href="#ViewDentist" rel="external" data-role="button"> View Dentists</a></p>
+		<p><a href="#Gallery1" rel="external" data-role="button">Photo Gallery</a></p>
+		</div>
+	</div><!-- /grid-a -->
+	<hr/>
+		<div class="ui-grid-a" id="contact_infos3">	
+		<div class="ui-block-a">
+		<h2> Contact us</h2>		
+			<p>Suite 1,</p>
+			<p>Town Hall Court,</p>
+			<p>Main Street,</p>
+			<p>Bray,</p>
+			<p>Co. Wicklow</p>
+		</div>		
+		<div class="ui-block-b">
+		<img src="images/data=VLHX1wd2Cgu8wR6jwyh-km8JBWAkEzU4,CgTmhEMZgc_0l_snMgquwA3s4A_eFWHX8e24jimFrCxgPV5FNgKnKDIauolWHhCKv5AOZrF4GRJ4XtE-48TACAh3_rcdwibx_Ys7l3P41imW1A5OK-4J5XfZQ9k.png" alt="plan jeanette"/>
+		</div>
+	</div><!-- /grid-a -->
+	<div id="contact_buttons3">	
+		<a href="https://maps.google.com/maps?f=q&amp;geocode=&amp;q=Wicklow+Dental,+1st+Floor+Unit,+Butlers+Medical+Hall+Pharmacy,+Abbey+St.,+Wicklow%4052.980428,-6.04406&amp;aq=0&amp;t=m&amp;ll=52.980428,-6.04406&amp;spn=0.00082,0.002411&amp;z=16&amp;output=embed" data-role="button" data-icon="maps"> Find us on Google Maps </a> 	
+		<a href="" data-role="button" data-icon="tel"> Call us </a>	
+	</div>	
+	<hr/>
+	<div id="notation3">	
+	<form>
+	<label class="select"><b>User rating</b></label>
+		<select name="note_utilisateur" id="note_utilisateur3" data-native-menu="false" data-theme="c" >
+		   <option value="one" class="one"> Not good at all </option>
+		   <option value="two" class="two">Average </option>
+		   <option value="three" class="three">Pretty good </option>
+		   <option value="four" class="four"> Excellent </option>
+		</select>	
+	</form>
+	</div>
+	<script type="text/javascript">
+	$( '#restau' ).live( 'pageinit',function(event){
+		var SelectedOptionClass = $('option:selected').attr('class');
+		$('div.ui-select').addClass(SelectedOptionClass);
+		
+		$('#note_utilisateur').live('change', function(){	 
+			$('div.ui-select').removeClass(SelectedOptionClass);
+			
+			SelectedOptionClass = $('option:selected').attr('class');
+			$('div.ui-select').addClass(SelectedOptionClass);		
+			
+		 });
+	});
+	</script>
+	</div>
+<div  data-role="footer" data-theme="b">
+                <h1>Dental Clinic</h1>
+            </div>
+
+</div>
+<!-- ************************************************************************************************************************************************** -->
+
+<!-- *************************************************************************************************************************************************** -->
+<div data-role="page" id="QuinsboroPage" data-theme="c">
+<div data-role="header"><a href="#wicklow_clinics" data-icon="back" data-theme="b" data-transition="slidedown">Back</a><h1>Wicklow Clinics:</h1></div>
+<div data-role="content">
+	<div class="ui-grid-a" id="restau_infos4">	
+		<div class="ui-block-a">
+		<h1>Quinsboro Dental</h1>
+		<p>For so many years going to the dentist was associated with fear, pain and an overall horrible experience.
+    	 Today it has changed significantly. At Quinsboro Dental Surgery we go the extra mile to ensure that you forget
+		 any previous experience and relax in a friendly painfree surrounding. “We listen to our patients. We explain
+		 what we are doing and take it slowly and easy. We know some dental procedures can be uncomfortable, but we will
+		 do our best to make sure you are at ease whilst we work away to restore your healthy confident smile”</p>
+		<p>Opening Hours: </p>
+			<ul> 
+				<li>Monday to Saturday</li>
+				<li>08.00am	- 08.00pm</li>
+			</ul>			
+		</div>		
+		<div class="ui-block-b">
+		<p><img src="images/TheManse-300x225.jpg" alt="jeannette photo"/></p>
+		<br />
+		<br/>
+		<br />
+		<br/>
+		<br />
+		<br/>
+		<br />
+		<br/>
+		<p><a href="http://www.quinsborodental.ie/quinsboro-dental-surgery/" rel="external" data-role="button">See our website</a></p>
+		<p><a href="#ViewDentist2" rel="external" data-role="button">View Dentists</a></p>
+		<p><a href="#Gallery1" rel="external" data-role="button">Photo Gallery</a></p>
+		</div>
+	</div><!-- /grid-a -->
+	<hr/>
+	
+	<div class="ui-grid-a" id="contact_infos4">	
+		<div class="ui-block-a">
+		<h2> Contact us</h2>		
+			<p>13 Quinsboro Rd,</p>
+			<p>Bray</p>
+			<p>Co Wicklow</p>
+	
+
+		</div>		
+		<div class="ui-block-b">
+		<img src="images/data=VLHX1wd2Cgu8wR6jwyh-km8JBWAkEzU4,5L56duxBBVndV_d6ddhZ7Kg5VEsk_CYnwlv_lwyg-U1atxr1WEBq9fFcZY0e0bgU7ydvCHneGxcgGy2aa47uvezfvcwZAvuqSWGBE2dJzZaK_6Y95RS1zSdy.png" alt="plan jeanette"/>
+		</div>
+	</div><!-- /grid-a -->
+	<div id="contact_buttons4">	
+		<a href="https://maps.google.com/maps?f=q&amp;geocode=&amp;q=Wicklow+Dental,+1st+Floor+Unit,+Butlers+Medical+Hall+Pharmacy,+Abbey+St.,+Wicklow%4052.980428,-6.04406&amp;aq=0&amp;t=m&amp;ll=52.980428,-6.04406&amp;spn=0.00082,0.002411&amp;z=16&amp;output=embed" data-role="button" data-icon="maps"> Find us on Google Maps </a> 	
+		<a href="" data-role="button" data-icon="tel"> Call us </a>	
+	</div>	
+	<hr/>
+	
+	<div id="notation4">	
+	<form>
+	<label class="select"><b>User rating</b></label>
+		<select name="note_utilisateur" id="note_utilisateur4" data-native-menu="false" data-theme="c" >
+		   <option value="one" class="one"> Not good at all </option>
+		   <option value="two" class="two">Average </option>
+		   <option value="three" class="three">Pretty good </option>
+		   <option value="four" class="four"> Excellent </option>
+		</select>	
+	</form>
+	</div>
+
+
+	<script type="text/javascript">
+
+	$( '#restau' ).live( 'pageinit',function(event){
+		var SelectedOptionClass = $('option:selected').attr('class');
+		$('div.ui-select').addClass(SelectedOptionClass);
+		
+		$('#note_utilisateur').live('change', function(){	 
+			$('div.ui-select').removeClass(SelectedOptionClass);
+			
+			SelectedOptionClass = $('option:selected').attr('class');
+			$('div.ui-select').addClass(SelectedOptionClass);		
+			
+		 });
+		
+	  
+	});
+
+	</script>
+	
+
+	</div>
+			<div  data-role="footer" data-theme="b">
+                <h1>Dental Clinic</h1>
+            </div>
+
+</div>
+<!-- ************************************************************************************************************************************************** -->
+
+<!-- *************************************************************************************************************************************************** -->
+<div data-role="page" id="Clarepage" data-theme="c">
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+    <div data-role="collapsible">
+        <h3>Carlow Dental Centre</h3>
+		<img src="images/doctors.jpg" alt="dentist2.jpg">
+        <p>Carlow Dental Centre has been established by two professional dentists and a medical manager.
+		   Each of them has got an experience of more than a decade, which they gained by working with
+		   patients from all over the world. The clinic itself is located in Graigue Village Centre,
+		   only a 15-minute walk from Carlow town centre. Carlow Dental Centre places special emphasis
+		   on creating a calm, relaxed atmosphere throughout the complex, especially in the waiting and
+		   consultation rooms. Being among the best in Europe at implants and crowns, they believe in an
+		   honest relationship between the doctor and the patient, in which sharing detailed information
+		   plays a crucial role. They are experienced dentists and competent personnel, taking care of
+		   patients responsibly and compassionately.
+
+           Yours faithfully,
+
+           Carlow Dental Centre Team</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Pembroke Dental Clinic</h3>
+		<img src="images/pembroke.jpg" alt="dentist2.jpg">
+        <p>Private, PRSI and medical card patients are treated at this dental clinic located near the Post
+		Office in Carlow. A comprehensive spectrum of treatments are provided at the clinic. The services 
+		of a hygienist, routine dental examinations and cleaning, silver and white fillings, crowns, veneers,
+		implants, dentures, root canal treatments, simple extractions, in surgery and take home tooth whitening
+		are offered at the clinic. The staff assist patients with insurance claims and tax relief. Dentists at
+		the clinic use the latest dental techniques in modern well equipped surgeries.</p>
+    </div>
+    <div data-role="collapsible">
+        <h3>Kiwi Dental</h3>
+		<img src="images/kiwi.jpg" alt="dentist2.jpg">
+        <p>Kiwi Dental is located in Shamrock Plaza on the Dublin Road, Carlow.  We offer professional dentistry
+		at affordable prices.  Caroline Robins is the principal dentist in Kiwi Dental.    She has been working
+		here since 2001.  At Kiwi Dental, we provide you with a relaxing appointment in a friendly atmosphere.
+		We are aware that many people dislike going to the dentist and we make sure that all our clients feel
+		welcome and feel comfortable. If you are just nursing an ache, embarrassed by your smile or just want to
+		find out what your options are, just give us a call. We are too happy to help.  When you arrrive you will
+		be greeted with a smile and treated with honesty and respect.  We will never advise you on unnecessary
+		treatment.  Your dental experience will be good fun and not what you expected
+ 
+	   "Let us help you put that smile back"</p>
+    </div>
+	<div data-role="collapsible">
+        <h3>Bernard Murphy Dental</h3>
+		<img src="images/bernard.jpg" alt="dentist2.jpg">
+        <p>Dr. Bernard Murphy BDS NUI Bernard received his BDS qualification from University College Cork in 1990.
+		A native of Cork, Bernard worked in general practice in Kent, England after he graduated, until 1992.He then
+		returned to Ireland and opened his own dental practice at the Royal Oak Road in Bagenalstown, Co Carlow.The
+		practice relocated to its present premises on Kilree Street in 1996. Bernard later expanded the practice by
+		opening a branch practice in Bunclody, Co Wexford and in Carlow at St. Patrick’s Avenue, Staplestown Road.
+		He is continually expanding and upgrading the facilities in all three practices to improve the range of services
+		available to patients.Bernard has been actively involved in the Irish Dental Association since 1992 which is the
+		representative organisation of the profession in Ireland. He lives in Bagenalstown with his wife and three children.</p>
+    </div>
+</div>
+</div>
+<!-- ************************************************************************************************************************************************** -->
+
+<!-- ************************************************************************************************************************************************** -->
+<div data-role="page" id ="tutorialspage" data-theme="c">
+	<div data-role="header" data-theme="b" data-position="fixed" class="ui-bar ui-bar-b">
+		<a href="#homePage" data-icon="back" data-mini ="true" data-transition="slidedown">Home</a>
+		<h1>Tutorials</h1>
+	</div><!-- /header -->
+   	<div data-frole="content" >
+		<br />
+		<form>
+			<div data-role="collapsible" data-theme="b" data-content-theme="d" data-inset="true">
+				<h3>Excercises</h3>
+				<ul data-role="listview">
+					<li><a href="#video4" data-transition="turn" data-inline="true" data-rel="popup">How To Brush Your Teeth</a></li>
+					<li><a href="#video5" data-transition="turn" data-inline="true" data-rel="popup">How To Floss Your Teeth</a></li>
+					<li><a href="#video6" data-transition="turn" data-inline="true" data-rel="popup">Tips For Good Dental Health</a></li>
+				</ul>
+			</div><!-- /collapsible -->
+			<div data-role="collapsible" data-theme="b" data-content-theme="c" data-inset="true">
+				<h3>Resources</h3>
+				<ul data-role="listview">
+					<li><a href="#video1" data-transition="turn" data-inline="true" data-rel="popup">Common Dental Health Concerns</a></li>
+					<li><a href="#video2" data-transition="turn" data-inline="true" data-rel="popup">What Is A Cavity</a></li>
+					<li><a href="#video3" data-transition="turn" data-inline="true" data-rel="popup">Gum Disease Symptoms And How To Treat It</a></li>
+				</ul>
+			</div><!-- /collapsible -->
+			<div data-role="collapsible" data-theme="b" data-content-theme="c" data-inset="true">
+				<h3>Children's Dental Hygiene</h3>
+				<ul data-role="listview">
+					<li><a href="#video7" data-transition="turn" data-inline="true" data-rel="popup">Everyone Loves Sir Flossmore</a></li>
+					<li><a href="#video8" data-transition="turn" data-inline="true" data-rel="popup">Tips for Children</a></li>
+					<li><a href="#video9" data-transition="turn" data-inline="true" data-rel="popup">You Will Lose Your Baby Teeth , Dont Be Upset</a></li>
+				</ul>
+			</div><!-- /collapsible -->
+			<div data-role="collapsible" data-theme="b" data-content-theme="c" data-inset="true">
+				<h3>Tooth descriptions</h3>
+				<ul data-role="listview">
+					<li><a href="#img1" data-transition="turn" data-inline="true" data-rel="popup">Baby Teeth</a></li>
+					<li><a href="#img2" data-transition="turn" data-inline="true" data-rel="popup">Adult Teeth and Various Ages</a></li>
+					<li><a href="#img3" data-transition="turn" data-inline="true" data-rel="popup">A Healthy Tooth</a></li>
+				</ul>
+			</div><!-- /collapsible -->
+		</form><br />
+					<div data-role="popup" id="video1" class="ui-content" data-theme="d">
+							<object style="height:200px; width:250px;" type="application/x-shockwave-flash">
+							<param name="movie" value="https://www.youtube-nocookie.com/v/cKUXZwvLxo0?version=3&amp;hl=en_US"/>
+							<param name="allowFullScreen" value="true"/>
+							<param name="allowScriptAccess" value="always"/>
+							<embed src="https://www.youtube-nocookie.com/v/cKUXZwvLxo0?version=3&amp;hl=en_US" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="400" height="260"/>
+					</object>
+					</div>
+					<div data-role="popup" id="video2" class="ui-content" data-theme="d">
+							<object style="height: 200px; width: 250px;" type="application/x-shockwave-flash">
+							<param name="movie" value="http://www.youtube-nocookie.com/v/hTK0iua4tNA?version=3&amp;hl=en_US"/>
+							<param name="allowFullScreen" value="true"/>
+							<param name="allowScriptAccess" value="always"/>
+							<embed src="http://www.youtube-nocookie.com/v/hTK0iua4tNA?version=3&amp;hl=en_US" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="400" height="260"/>
+					</object>
+					</div>
+					<div data-role="popup" id="video3" class="ui-content" data-theme="d">
+							<object style="height: 200px; width: 250px;" type="application/x-shockwave-flash">
+							<param name="movie" value="http://www.youtube-nocookie.com/v/HjvWh5Z-qzs?version=3&amp;hl=en_US"/>
+							<param name="allowFullScreen" value="true"/>
+							<param name="allowScriptAccess" value="always"/>
+							<embed src="http://www.youtube-nocookie.com/v/HjvWh5Z-qzs?version=3&amp;hl=en_US" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="400" height="260"/>
+					</object>
+					</div>
+					<div data-role="popup" id="video4" class="ui-content" data-theme="d">
+							<object style="height: 200px; width: 250px" type="application/x-shockwave-flash">
+							<param name="movie" value="http://www.youtube-nocookie.com/v/gk8eKm4ajgM?hl=en_US&amp;version=3"/>
+							<param name="allowFullScreen" value="true"/>
+							<param name="allowScriptAccess" value="always"/>
+							<embed src="http://www.youtube-nocookie.com/v/gk8eKm4ajgM?hl=en_US&amp;version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="400" height="260"/>
+					</object>
+					</div>
+					<div data-role="popup" id="video5" class="ui-content" data-theme="d">
+							<object style="height: 200px; width: 250px" type="application/x-shockwave-flash">
+							<param name="movie" value="http://www.youtube-nocookie.com/v/xEgp3SEtB0I?version=3&amp;hl=en_US"/>
+							<param name="allowFullScreen" value="true"/>
+							<param name="allowScriptAccess" value="always"/>
+							<embed src="http://www.youtube-nocookie.com/v/xEgp3SEtB0I?version=3&amp;hl=en_US" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="400" height="260"/>
+					</object>
+					</div>
+					<div data-role="popup" id="video6" class="ui-content" data-theme="d">
+							<object style="height: 200px; width: 250px" type="application/x-shockwave-flash">
+							<param name="movie" value="http://www.youtube-nocookie.com/v/fv-EGsNvNzc?hl=en_US&amp;version=3"/>
+							<param name="allowFullScreen" value="true"/>
+							<param name="allowScriptAccess" value="always"/>
+							<embed src="http://www.youtube-nocookie.com/v/fv-EGsNvNzc?hl=en_US&amp;version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="400" height="260"/>
+					</object>
+					</div>
+					<div data-role="popup" id="video7" class="ui-content" data-theme="d">
+							<object style="height: 200px; width: 250px" type="application/x-shockwave-flash">
+							<param name="movie" value="http://www.youtube-nocookie.com/v/z5EGyl3DGrw?hl=en_US&amp;version=3"/>
+							<param name="allowFullScreen" value="true"/>
+							<param name="allowScriptAccess" value="always"/>
+							<embed src="http://www.youtube-nocookie.com/v/z5EGyl3DGrw?hl=en_US&amp;version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="400" height="260"/>
+					</object>
+					</div>
+					<div data-role="popup" id="video8" class="ui-content" data-theme="d">
+							<object style="height: 200px; width: 250px" type="application/x-shockwave-flash">
+							<param name="movie" value="http://www.youtube-nocookie.com/v/lUWfa5dUd_k?hl=en_US&amp;version=3"/>
+							<param name="allowFullScreen" value="true"/>
+							<param name="allowScriptAccess" value="always"/>
+							<embed src="http://www.youtube-nocookie.com/v/lUWfa5dUd_k?hl=en_US&amp;version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="400" height="260"/>
+					</object>
+					</div>
+					<div data-role="popup" id="video9" class="ui-content" data-theme="d">
+							<object style="height: 200px; width: 250px" type="application/x-shockwave-flash">
+							<param name="movie" value="http://www.youtube-nocookie.com/v/Z6W5jCvS7Wg?hl=en_US&amp;version=3"/>
+							<param name="allowFullScreen" value="true"/>
+							<param name="allowScriptAccess" value="always"/>
+							<embed src="http://www.youtube-nocookie.com/v/Z6W5jCvS7Wg?hl=en_US&amp;version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="400" height="260"/>
+					</object>
+					</div>
+					<div data-role="popup" id="img1" class="ui-content" data-theme="d">
+							<!--<object style="height: 315px; width: 420px" type="application/x-shockwave-flash">-->
+							<img src="http://www.lpch.org/media/images/conditions/ei_0043.gif" alt="Teeth">
+							<!-- <param name="picture" value="http://www.lpch.org/media/images/conditions/ei_0017.gif"/>-->
+							<!--<param name="allowFullScreen" value="true"/>-->
+							<!--<param name="allowScriptAccess" value="always"/>-->
+							<!--<embed src="http://www.lpch.org/media/images/conditions/ei_0017.gif" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="420" height="315"/>-->
+					
+					</div>
+					<div data-role="popup" id="img2" class="ui-content" data-theme="d">
+							<!--<object style="height: 315px; width: 420px" type="application/x-shockwave-flash">-->
+							<img src="http://www.lpch.org/media/images/conditions/ei_0017.gif" alt="Teeth">
+							<!--<param name="movie" value="http://www.youtube-nocookie.com/v/Z6W5jCvS7Wg?hl=en_US&amp;version=3"/>-->
+							<!--<param name="allowFullScreen" value="true"/-->
+							<!--<param name="allowScriptAccess" value="always"/>-->
+							<!--<embed src="http://www.youtube-nocookie.com/v/fv-EGsNvNzc?hl=en_US&amp;version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="400" height="260"/>-->
+					
+					</div>
+					<div data-role="popup" id="img3" class="ui-content" data-theme="d">
+							<!--<object style="height: 315px; width: 420px" type="application/x-shockwave-flash">-->
+							<img src="http://dentalexcellence.co.nz/wp-content/uploads/2013/07/sensitivity.jpg" alt="Teeth">
+							<!--<param name="movie" value="http://www.youtube-nocookie.com/v/Z6W5jCvS7Wg?hl=en_US&amp;version=3"/>-->
+							<!--<param name="allowFullScreen" value="false"/>-->
+							<!--<param name="allowScriptAccess" value="always"/>-->
+							<!--<embed src="http://www.youtube-nocookie.com/v/fv-EGsNvNzc?hl=en_US&amp;version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="400" height="260"/>-->
+					
+					
+					</div>
+	</div><!-- /content -->
+	
+</div><!-- /page -->
+
+<div data-role="page" id="Nutrition">
+	<div data-role="header" data-theme="b" data-position="fixed" class="ui-bar ui-bar-b">
+		<a href="#homePage" data-icon="back" data-mini ="true" data-transition="slidedown">Back</a>
+		<h1>Nutrition Guide</h1>
+	</div><!-- /header -->
+   	<div data-role="content" >
+		
+		<form>
+			<div data-role="collapsible" data-theme="b" data-content-theme="d" data-inset="true">
+				<h3>Nutrition for adults</h3>
+				<ul data-role="listview">
+					<li><a href="#video66" data-transition="turn" data-inline="true" data-rel="popup">Nutrition and dental health</a></li>
+					<li><a href="#video55" data-transition="turn" data-inline="true" data-rel="popup">Dental health and nutrition</a></li>
+					<li><a href="#video44" data-transition="turn" data-inline="true" data-rel="popup">Nutrition</a></li>
+				</ul>
+			</div><!-- /collapsible -->
+			<div data-role="collapsible" data-theme="b" data-content-theme="d" data-inset="true">
+				<h3>Nutrition for Kids</h3>
+				<ul data-role="listview">
+					<li><a href="#video33" data-transition="turn" data-inline="true" data-rel="popup">Nutrition and tooth decay </a></li>
+					<li><a href="#video22" data-transition="turn" data-inline="true" data-rel="popup">Importance of Healthy food</a></li>
+					<li><a href="#video11" data-transition="turn" data-inline="true" data-rel="popup">Fun Nutrition </a></li>
+				</ul>
+			</div><!-- /collapsible -->
+			<div data-role="collapsible" data-theme="b" data-content-theme="d" data-inset="true">
+				<h3>Resources</h3>
+				<ul data-role="listview">
+					<li><a href="http://voices.yahoo.com/essential-nutrients-healthy-teeth-gums-1996797.html?cat=69">Essential Nutrients</a></li>
+					<li><a href="http://www.webmd.com/oral-health/guide/nutrition-childs-teeth">Nutrition for Childs teeth</a></li>
+					<li><a href="http://www.healthaliciousness.com/articles/vitamin-C.php">Top ten foods with Vit C</a></li>
+				</ul>
+			</div><!-- /collapsible -->
+			<div data-role="collapsible" data-theme="b" data-content-theme="d" data-inset="true">
+				<h3>Tooth-friendly foods</h3>
+				
+					<h2><i>Vegetables</i></h2>
+					<p>Vegetables and fruits promote good dental health, so include them in your daily diet. The vitamins, minerals and antioxidants in these foods protect teeth and gums.</p>
+					
+					<h2><i>Dairy Products</i></h2>
+					<p>Dairy products without added sugar help teeth in a number of ways. Cheese helps stimulate saliva, 
+					while its calcium helps replace minerals leached from the teeth</p>
+		     		
+					<h2><i>Fruit</i></h2>
+					
+					<p>Fruit for example oranges contain vitamin C which helps to prevent scurvy in the gums</p>
+					
+					
+					<h2><i>Fresh Herbs</i></h2>
+					
+					<p>Fresh and dried herbs are packed with vitamins and health benefits, they can be used in almost any soup, stew, or as the main ingredient to a salad like tabouleh.
+
+					Thyme provides the most vitamin C of any herb</p>
+					
+				
+				</div><!-- /collapsible -->
+			<div data-role="collapsible" data-theme="b" data-content-theme="d" data-inset="true">
+				<h3>Un-Tooth-friendly foods</h3>
+				<h2><i>Carbonated drinks</i></h2>
+				<p>Fizzy drinks are terrible for your diet, Like their sugar-loaded versions, artificially sweetened soft drinks contain tooth-eroding acids, such as phosphoric and citric. Even canned iced teas,
+				which normally might be good for teeth, contain flavor-enhancing organic acids that can erode tooth enamel.</p>
+				<h2><i>Dried fruits</i></h2>
+				<p>Dried fruits already sweet when fresh, their sugars are highly concentrated as the water is dried away, and their gummy texture can cling to teeth as much as gooey candy.
+				And worse, the fruit is packed with non-soluble cellulose fiber, which can bind and trap sugars on and around the tooth, making it worse than candy.</p>
+				<h2><i>Starchy Foods</i></h2>
+					<p>While they may not necessarily taste sweet, the starches can begin converting to sugar almost immediately, not only by the bacteria, but also by the pre-digestive process that begins
+					in the mouth through the enzymes in saliva.
+				Starchy foods
+				caramels stick and cling tenaciously to tooth surfaces and crevices, hard candies and lollipops are also very bad; they’re designed for a long, leisurely suck.</p>
+					
+				
+			</div><!-- /collapsible -->
+		</form><br />
+					<div data-role="popup" id="video66" class="ui-content" data-theme="d">
+							<object style="height: 200px; width: 250px;" type="application/x-shockwave-flash">
+							<param name="movie" value="http://www.youtube-nocookie.com/v/xV6PEnnow7k?version=3&amp;hl=en_US">
+							<param name="allowFullScreen" value="true"/>
+							<param name="allowScriptAccess" value="always"/>
+							<embed src="http://www.youtube-nocookie.com/v/xV6PEnnow7k=en_US&amp;version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="400" height="260"/>
+					</object>
+					</div>
+					<div data-role="popup" id="video55" class="ui-content" data-theme="d">
+							<object style="height: 200px; width: 250px;" type="application/x-shockwave-flash">
+							<param name="movie" value="http://www.youtube-nocookie.com/v/HDzeQ94m_NY?version=3&amp;hl=en_US">
+							<param name="allowFullScreen" value="true"/>
+							<param name="allowScriptAccess" value="always"/>
+							<embed src="http://www.youtube-nocookie.com/v/HDzeQ94m_NY?version=3&amp;hl=en_US"> type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="400" height="260"/>
+					</object>
+					</div>
+					<div data-role="popup" id="video44" class="ui-content" data-theme="d">
+							<object style="height: 200px; width: 250px;" type="application/x-shockwave-flash">
+							<param name="movie" value="http://www.youtube-nocookie.com/v/Q_CHNYnapTI?version=3&amp;hl=en_US"/>
+							<param name="allowFullScreen" value="true"/>
+							<param name="allowScriptAccess" value="always"/>
+							<embed src="http://www.youtube-nocookie.com/v/Q_CHNYnapTI?version=3&amp;hl=en_US" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="400" height="260"/>
+					</object>
+					</div>
+					<div data-role="popup" id="video33" class="ui-content" data-theme="d">
+							<object style="height: 200px; width: 250px" type="application/x-shockwave-flash">
+							<param name="movie" value="http://www.youtube-nocookie.com/v/txJsZV-ZYWQ?version=3&amp;hl=en_US"/>
+							<param name="allowFullScreen" value="true"/>
+							<param name="allowScriptAccess" value="always"/>
+							<embed src="http://www.youtube-nocookie.com/v/txJsZV-ZYWQ?version=3&amp;hl=en_US"/> type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="400" height="260"/>
+					</object>
+					</div>
+					<div data-role="popup" id="video22" class="ui-content" data-theme="d">
+							<object style="height: 200px; width: 250px" type="application/x-shockwave-flash">
+							<param name="movie" value="http://www.youtube-nocookie.com/v/Erl3ZqFQIi4?hl=en_US&amp;version=3">
+							<param name="allowFullScreen" value="true"/>
+							<param name="allowScriptAccess" value="always"/>
+							<embed src="http://www.youtube-nocookie.com/v/Erl3ZqFQIi4?hl=en_US&amp;version=3"> type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="400" height="260"/>
+					</object>
+					</div>
+					<div data-role="popup" id="video11" class="ui-content" data-theme="d">
+							<object style="height: 200px; width: 250px" type="application/x-shockwave-flash">
+							<param name="movie" value="http://www.youtube-nocookie.com/v/Fsqki4EwIdM?version=3&amp;hl=en_US"/>
+							<param name="allowFullScreen" value="true"/>
+							<param name="allowScriptAccess" value="always"/>
+							<embed src="http://www.youtube-nocookie.com/v/Fsqki4EwIdM?version=3&amp;hl=en_US" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="400" height="260"/>
+					</object>
+					</div>
+	</div><!-- /content -->
+</div>
+<!-- /page -->
+
+<!-- Start of first page: #one -->
+<div data-role="page" id="contact">
+
+	<div data-role="header" data-theme="b" data-transition="slidedown"><a href="#homePage" data-icon="back" data-mini ="true" data-transition="slidedown">Back</a><h1></h1></div>
+	<div data-role="content" data-content-theme="b" data-inset="true" >	
+		
+		<h2><i>About:</i></h2>
+		<p>Dental Protection advises that practitioners keep records as long as possible but in 
+         any event a minimum of 11 years for adults. The reason for this is that claims can 
+         arise many years after the treatment is provided. The presence of records is of great 
+         assistance in investigating a claim. The absence of records can create considerable 
+         difficulties for the health care professional.  
+    </p>	
+		
+		<p>Because individual situations will vary, this information is provided for general 
+        guidance only. Regardless of any specific legal requirement it is best practice to keep 
+         all your dental records for as long as possible. Whilst the law may sometimes define 
+        a minimum requirement, it is no crime to exceed it and you may well be very glad that</p>	
+		</div>
+		<br/>
+		<br/>
+		<h2><i>More Information:</i></h2>
+		<p><a href="#questions" data-role="button" data-theme="b">Frequent Questions Asked</a></p>	
+		<p><a href="#popupBasic" data-role="button" data-theme="b" data-rel="popup">Creators</a></p>
+		
+		<div data-role="popup" id="popupBasic">
+		<ul data-role="listview">	
+		
+		
+		
+					<li><a href="http://www.linkedin.com/profile/view?id=238981843&amp;goback=%2Enmp_*1_*1_*1_*1_*1_*1_*1_*1_*1_*1&amp;trk=spm_pic">Barry Mc Gettigan</a></li>
+					
+					
+					<li><a href="http://www.linkedin.com/profile/view?id=166680876&amp;authType=name&amp;authToken=7-J9&amp;goback=%2Enmp_*1_*1_*1_*1_*1_*1_*1_*1_*1_*1">Arnis Lupiks</a></li>
+				
+					
+				
+					<li><a href="#">Joanne Anderson</a></li>
+					
+					
+					
+					<li><a href="http://www.linkedin.com/profile/view?id=270420968&amp;locale=en_US&amp;trk=tyah2&amp;trkInfo=tas%3AGemma%20B%2Cidx%3A1-1-1">Gemma Brady</a></li>
+					
+					
+					<li><a href="#">Brian Channey</a></li>	
+				</ul>
+		</div>
+		
+	</div><!-- /content -->
+	
+
+<!-- /page one -->
+
+
+<!-- Start of second page: #questions -->
+<div data-role="page" id="questions" data-theme="c">
+
+	<div data-role="header" data-theme="b" data-transition="slidedown">
+	<a href="#contact" data-icon="back" data-mini ="true" data-transition="slidedown">Back</a><h1></h1></div>
+
+	<div data-role="content" data-theme="c" data-inset="true">	
+		<h2><i>Frequent questions asked:</i></h2>
+		
+		<p><b>Is there any legal requirement which determines the length of time that a dentist 
+needs to keep their patient’s clinical records in Ireland?</b></p>
+<p><i>There is no legislative provision for minimum periods for which records should be 
+kept. Dental Code of Practice issued by the Dental Council requires a dentist to keep 
+records for a reasonable period, not likely to be less than ten years, before being 
+destroyed. We would advise that clinical judgment be used in each individual case 
+ 
+The National Freedom of Information Group for Health Boards recommended the 
+following minimum retention periods for personal health records.</i><br /><br/>
+
+<p><b>General Adults: </b></p>
+<p><i>Eight years after last contact subject to understanding there is no evidence of any 
+long-term disability. </i></p><br />
+
+ <p><b>Children and Young Persons:</b></p>
+<p><i>Up to the patient’s twenty sixth birthday. </i><p><br /> 
+
+<p><b>Mental Health Patients:</b></p>
+<p><i>Twenty years after cessation of treatment.</i></p><br />
+
+ 
+<p><b>Clinical Trial Patients:</b></p>
+<p><i>Fifteen years after conclusion of treatment.</i></p><br />
+
+ 
+<p><b>Deceased patients:</b></p> 
+<p><i>Eight years after death.</i></p><br />
+
+<p><b>Are there any legal obligations about the storage of dental records?</b></p>
+<p><i>The Data Protection Acts 1988 and 2003 require a person who keeps personal 
+information on a computer (or in manual files from October 2007):</i></p>
+<ul>
+<li>1. To register as a Data Processor. </li>
+<li>2. To obtain and process the information fairly. </li>
+<li>3. To keep it only for one or more specified and lawful purpose. </li>
+<li>4. To process it only in ways compatible with the purposes for which it was given 
+initially. </li>
+<li>5. To keep it safe and secure. </li>
+<li>6. To keep it accurate and up to date. </li>
+<li>7. To ensure that it is adequate, relevant and not excessive. </li>
+<li>8. To retain it no longer than is necessary for the specified purpose or purposes. </li>
+<li>9. Give a copy of his/her personal data to an individual on request. </li>
+</ul>
+
+
+
+<p><a href="#contact" data-direction="reverse" data-role="button" data-theme="b">Back to About</a></p>	
+		
+	</div><!-- /content -->
+	
+</div><!-- /page two -->
+
+	
+</body>
+</html>
